@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
     // load sprites json from server
-    let response = (await (await fetch("https://typo.rip/sprites/")).json());
+    let response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
     let sprites = response.Sprites;
     let drops = response.Drops;
     // get sprites container
