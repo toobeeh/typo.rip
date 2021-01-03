@@ -1,0 +1,218 @@
+html {
+    margin: 0;
+    box-sizing: border-box;
+    background: #0d0d0d;
+}
+* {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    margin:0;
+    position:absolute;
+    min-height: 100%;
+    width:100%;
+}
+#backgroundClouds {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+    #backgroundClouds:before {
+        content:"";
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 400%;
+        height: 400%;
+        background-image: url(../res/backStars.gif);
+        background-size: 35vw;
+        background-repeat: repeat;
+        animation-name: rotate;
+        animation-duration: 500s;
+        animation-iteration-count: infinite;
+        animation-timing-function:linear;
+    }
+.backgroundSide {
+    width: 15vw;
+    transition: filter 0.5s, opacity 0.5s;
+    height: 100%;
+    background-size: contain;
+    position: absolute;
+    background-repeat: repeat-y;
+    opacity: 1;
+}
+    .backgroundSide:hover {
+        filter: drop-shadow(0px 0px 0.8em rgba(0, 0, 0, 0.5));
+    }
+@keyframes moveFg{
+    0% {background-position-y: 0vh;}
+    50% {background-position-y: 1vh;}
+    100% {background-position-y: 0vh;}
+}
+@keyframes moveBg {
+    0% {background-position-x: 0vw;}
+    50% {background-position-x: 1vw;}
+    100% {background-position-x: 0vw;}
+}
+@keyframes rotate {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg)}
+}
+@keyframes pulseMoon {
+    0% {height:70%}
+    50% {height:78%}
+    100% {height:70%}
+}
+@keyframes hopUp {
+    0% {top: 8vh}
+    50% {top: 10vh}
+    100% {top:8vh}
+}
+@keyframes pulseIcons {
+    0% {margin:1em}
+    50% {margin:0.5em}
+    100% {margin:1em}
+}
+.cloudsLeftBack{
+    left:-3vw;
+    z-index:1;
+    background-image: url(../res/cloudsBg.gif);
+}
+.cloudsLeftFore {
+    left: 0;
+    z-index: 2;
+    background-image: url(../res/cloudsFg.gif);
+}
+
+.animateBack {
+    animation-name: moveBg;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+}
+.animateFore {
+    animation-name: moveFg;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+}
+
+.cloudsRightBack {
+    right: -3vw;
+    z-index: 1;
+    transform: scaleX(-1);
+    background-image: url(../res/cloudsBg.gif);
+}
+
+.cloudsRightFore {
+    right: 0;
+    z-index: 2;
+    transform: scaleX(-1);
+    background-image: url(../res/cloudsFg.gif);
+}
+#logoContainer {
+    z-index: 2;
+    height: 15vh;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(black, transparent);
+}
+#logo {
+    user-select:none;
+    height: 70%;
+    cursor: pointer;
+    transition:filter 0.3s;
+    animation-name: pulseMoon;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+}
+    #logo:hover {
+        filter:drop-shadow(0px 0px 1em rgba(255, 255, 255, 0.3));
+    }
+
+#navPlan{
+    position: relative;
+    height:100%;
+}
+#navClone {
+    text-shadow: -3px 3px 0px rgba(41, 55, 87, 1);
+}
+    #navClone h1 {
+        transition: text-shadow 0.2s;
+        margin:0;
+        opacity:0;
+    }
+        #navClone h1:hover {
+            text-shadow: -4px 4px 0px rgba(64, 79, 106, 1);
+        }
+
+#navPlanCap {
+    position: absolute;
+    height:100%;
+    z-index: 2;
+    left: 0;
+    right: 0;
+}
+#navPlanCont{
+    position:relative;
+    top:-90%;
+    height:200%;
+    transition:top 0.5s, opacity 0.2s;
+    cursor:pointer;
+}
+    #navPlanCont:hover {
+        filter: drop-shadow(0px 0px 1em rgba(255, 255, 255, 0.3));
+        top:-70%;
+    }
+.iconsRow {
+    user-select: none;
+    margin: 2em 0;
+    height:8rem;
+}
+.glowYellow{
+    animation-name: glowYellow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+}
+.iconsRow > div:last-child {
+    transform: rotate(10deg);
+}
+.iconsRow > div:first-child {
+    transform: rotate(-10deg);
+}
+.icon {
+    width: 6rem;
+    animation-name: pulseIcons;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: width 0.2s;
+    filter:drop-shadow(0px 0px 1em rgba(250, 248, 121, 0.2));
+}
+    .icon:hover {
+        width: 5.5rem;
+    }
+
+    .icon:active{
+        width:5rem;
+    }
+
+#tutorial {
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+#tutorial:hover {
+    opacity: 0.8;
+}

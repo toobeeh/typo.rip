@@ -1,0 +1,199 @@
+.dummy {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #181a1c;
+    color: white;
+    letter-spacing: 0.05em;
+    margin: 10px;
+    width: 270px;
+    font-size: 0.7em;
+    margin: 2em;
+    width: 250px;
+    border: 2px solid #7289da;
+    border-radius: 6px;
+}
+
+
+.dummy .tabContent {
+    background: #232529;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+}
+
+.dummy .tabSelection {
+    font-size: 1.2em;
+    font-weight: 600;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dummy .tabActive {
+    background: #232529 !important;
+    padding: 0.7em !important;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0em !important;
+    border-bottom-right-radius: 0em !important;
+    /*color: #99aab5;*/
+}
+
+.dummy .tabTitle {
+    background: #424549;
+    padding: 0.4em;
+    cursor: pointer;
+    user-select: none;
+    transition: background ease 0.3s,border-radius ease 0.3s;
+    border-radius: 0.5em;
+}
+
+.dummy .tabTitle:not(.tabActive):hover {
+    background: #99aab5;
+}
+
+.dummy #play {
+    image-rendering: pixelated;
+}
+
+.dummy button, 
+.dummy input[type='text'],
+.dummy #dc {
+    font-size: inherit;
+    transition: background 0.15s;
+    margin: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border: none;
+    border-radius: 0.4em;
+    background: #424549;
+    padding: 1em;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.dummy button:hover {
+    background: #99aab5;
+}
+
+.dummy .active {
+    background: #7289da;
+}
+
+.dummy button:focus,
+.dummy input[type='text']:focus,
+.dummy button:active {
+    border: none;
+    outline: 0;
+}
+
+.dummy h1 {
+    width:unset;
+    color:white;
+    font-style:inherit;
+    font-size: 1.7em;
+    text-align: center;
+    margin: .5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: #282b30;
+    border-radius: 0.5em;
+}
+
+.dummy .back {
+    padding: .8em;
+    background: #424549;
+    border-radius: .3em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.dummy hr {
+    border: none;
+    height: 0.2em;
+    background: #282b30;
+    width: 65%;
+    /*margin-top: 1em;*/
+    margin-bottom: 1em;
+}
+
+.dummy .flexcol {
+    display: flex;
+    flex-direction: column;
+}
+
+.dummy .flexrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dummy .flexrowMenu > * {
+    flex-basis: 100%;
+}
+
+
+.dummy .label {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    font-weight: 500;
+}
+
+.dummy .label {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.dummy .slider {
+    position: relative;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 100%;
+    height: 0.5em;
+    border-radius: 0.1em;
+    outline: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.dummy .sliderBox {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.dummy .sliderBar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-radius: 0.1em;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #99aab5;
+}
+
+.dummy .sliderFill {
+    display: block;
+    width: 50%;
+    height: 100%;
+    background-color: #7289da;
+}
+
+.dummy .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: #7289da;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: translateY(-25%);
+}

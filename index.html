@@ -1,0 +1,810 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/graphics.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    <script src="js/ui.js"></script>
+    <title> ⚰️ Typo</title>
+    <link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
+</head>
+<body>
+    <div id="navBack"></div>
+    <div id="navClone" class="flexcol flexcenter">
+        <a href="https://tobeh.host/typo/" target="_blank"><h1>Add Typo</h1></a>
+        <a href="#features"><h1>Features</h1></a>
+        <a href="#interface"><h1>Interface</h1></a>
+        <a href="#sprites"><h1>Sprites</h1></a>
+        <a href="#palantir"><h1>Discord Bot</h1></a>
+        <a href="#admin"><h1>Admin</h1></a>
+        <!--<a href="https://github.com/toobeeh/" target="_blank"><h1>GitHub</h1></a>-->
+    </div>
+    <div id="backgroundClouds">
+        <div class="cloudsLeftBack backgroundSide animateBack"></div>
+        <a href="#documentation"><div class="cloudsLeftFore backgroundSide animateFore"></div></a>
+        <div class="cloudsRightBack backgroundSide animateBack"></div>
+        <a href="#documentation"><div class="cloudsRightFore backgroundSide animateFore"></div></a>
+</div>
+    <div class="flexrow flexbetween fullwidth" id="logoContainer">
+        <a href="#home"><img id="logo" src="res/moon.gif" /></a>
+        <div id="navPlanCont"><img id="navPlan" src="res/navPlan.gif"><img id="navPlanCap" src="res/navPlanOverlay.gif"></div>
+    </div>
+    <div class="contentSection hidden" id="home">
+        <h1>.. what's that?</h1>
+        <div class="flexrow flexcenter fullwidth iconsRow">
+            <div class="cglowYellow"><img class="icon" draggable="false" src="res/wand.gif"></div>
+            <div class="cglowYellow"><img class="icon" draggable="false" src="res/magicball.gif"></div>
+            <div class="cglowYellow"><img class="icon" draggable="false" src="res/book.gif"></div>
+        </div>
+        <h2>Typo adds some magic to skribbl.io</h2>
+        <h3>
+            Draw fancier, connect to Discord and start collecting Sprites!
+            <br />
+            Click the purple planet to add Typo or to get to know the features.
+        </h3>
+    </div>
+    <div class="contentSection hidden" id="palantir">
+        <h1>'Palantir' Discord Bot</h1>
+        <h2>The Palantir Bot works together with Typo.</h2>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>How the bot works</h2>
+                    <div>
+                        <ul>
+                            <li>Typo sends Palantir when youre online in skribbl.</li>
+                            <li>Palantir shows everyone on your server who connected typo in a message.</li>
+                            <li>The message shows you lobby, language, points and more.</li>
+                            <li>On skribbl, these lobbies can be searched for automatically.</li>
+                        </ul>
+                        <img src="res/message.gif" />
+                    </div>
+                </div>
+            </div>
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>Connect Typo with Palantir</h2>
+                    <div>
+                        <ul>
+                            <li>If your DC server has Palantir, follow the video instructions.</li>
+                            <li>Enable the video captions to see details.</li>
+                            <li>To add the bot, go to "Admin" and set the bot up.</li>
+                        </ul>
+                        <a href="https://youtu.be/Tt8eb3v6UwE" target="_blank"><img id="tutorial" src="res/youtube.gif" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentBox">
+            <h2>Upgrade your avatar & match with your friends</h2>
+            <div>
+                <ul>
+                    <li>Using Palantir, you are rewarded a virtual currency every 10s.</li>
+                    <li>With those Bubbles, you can buy Sprites which display in your skribbl avatar.</li>
+                    <li>To get extra Bubbles and buy event Sprites, click Drops on the skribbl canvas.</li>
+                    <li>Once in a while, there are Sprite events for exclusive stuff.</li>
+                </ul>
+            </div>
+        </div>
+        <h2>Bot features & commands</h2>
+        <h3>
+            How to read: A command consists of the <span class="command">command-name</span> and parameters.<br />
+            Parameters <span class="pmOpt">like these</span> are optional, <span class="pmReq">these</span> are required.<br />
+            Do not type out <span class="pmOpt"></span> and <span class="pmReq"></span> brackets, <span class="pmID"></span> is always just a number.
+        </h3>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2><span class="command">bubbles</span></h2>
+                    <div>
+                        Shows a manual about Bubbles.<br />
+                        Example: <span class="command">bubbles</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">buy</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Buy the sprite of the <span class="pmID"></span>.<br />
+                        Example: <span class="command">buy</span> <span class="pmReq ex">5</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">inventory</span></h2>
+                    <div>
+                        Shows your inventory.<br />
+                        Example: <span class="command">inventory</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">leaderboard</span></h2>
+                    <div>
+                        Shows your server's Bubble leaderboard.<br />
+                        Example: <span class="command">leaderboard</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">stat</span> <span class="pmOpt">mode</span></h2>
+                    <div>
+                        Shows Bubble gain statistics.<br />
+                        <span class="pmOpt">mode</span> can be either <span class="pmOpt ex">day</span>,<span class="pmOpt ex">week</span> or <span class="pmOpt ex">month</span>.<br />
+                        Example: <span class="command">stat</span> <span class="pmOpt ex">day</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">event</span> <span class="pmOpt"><span class="pmID"></span></span></h2>
+                    <div>
+                        Shows either the active event or the event with given <span class="pmOpt"><span class="pmID"></span></span>.<br />
+                        Example: <span class="command">event</span> <span class="pmOpt ex">2</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">upcoming</span></h2>
+                    <div>
+                        Shows upcoming events.<br />
+                        Example: <span class="command">upcoming</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">passed</span></h2>
+                    <div>
+                        Shows passed events.<br />
+                        Example: <span class="command">passed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2><span class="command">sprite</span> <span class="pmOpt"><span class="pmID"></span></span></h2>
+                    <div>
+                        Shows the sprite of the <span class="pmID"></span>.<br />
+                        Without <span class="pmOpt"><span class="pmID"></span></span>, three random sprites are shown.<br />
+                        Example: <span class="command">sprite</span> <span class="pmOpt ex">5</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">use</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Use the sprite of the <span class="pmID"></span>.<br />
+                        Example: <span class="command">use</span> <span class="pmReq ex">5</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">calc</span> <span class="pmReq">mode</span> <span class="pmReq">value</span></h2>
+                    <div>
+                        Calculates remaining time for a bubble amount.<br />
+                        <span class="pmOpt">mode</span> can be either <span class="pmReq ex">sprite</span>, <span class="pmReq ex">bubbles</span> or <span class="pmReq ex">rank</span>.<br />
+                        Example: <span class="command">calc</span> <span class="pmReq ex">sprite</span> <span class="pmReq ex">5</span>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">gift</span> <span class="pmReq">@user</span> <span class="pmReq">amount</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Gifts another person event drops. Up to 50% are lost, 3 drops are minimum.<br />
+                        <span class="pmReq">@user</span> mentions the receiver. <br />
+                        <span class="pmReq">amount</span> is the amount of drops which are required for the sprite with the ID <span class="pmReq"><span class="pmID"></span></span>. <br />
+                        Example: <span class="command">gift</span> <span class="pmReq ex">@tobeh</span> <span class="pmReq ex">10</span> <span class="pmReq ex">5</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="contentSection hidden" id="features">
+        <h1>All Features</h1>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>Interface Improvements</h2>
+                    <div>
+                        <ul>
+                            <li>CharBar shows if the typed guess fits the hints and the word length</li>
+                            <li>Up/Down keys to get the last chat input</li>
+                            <li>Show a template picture of a term (ImageAgent)</li>
+                            <li>Highlight your messages in the chat</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Drawing</h2>
+                    <div>
+                        <ul>
+                            <li>Pressure sensitivity (Windows Ink required)</li>
+                            <li>Free Draw Mode (Click the avatar on the skribbl frontpage)</li>
+                            <li>Back-Button to undo last step (not 100% stable)</li>
+                            <li>Rainbow-Color brush to switch colors automatically (Click the dice in the color field)</li>
+                            <li>Color pipette (Shortcut "C")</li>
+                            <li>Bigger color palette (only extension users see those)</li>
+                            <li>Clear-Shortcut "ESC"</li>
+                            <li>Draw straight lines with Shift + Arrow Keys</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>Lobby Search</h2>
+                    <div>
+                        <ul>
+                            <li>Search for one or more player names</li>
+                            <li>Buttons to exit / skip current lobby</li>
+                            <li>Skip empty lobbies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Image Magic</h2>
+                    <div>
+                        <ul>
+                            <li>Download image as PNG</li>
+                            <li>Save drawing process animation as GIF</li>
+                            <li>Share images with one click on your Discord servers</li>
+                            <li>Copy and save drawings to be automatically re-drawn (ImageTools)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Palantir Discord Bot</h2>
+                    <div>
+                        <ul>
+                            <li>Send your lobby to your favourite discord servers</li>
+                            <li>See who of your friends is playing and search automatically for them</li>
+                            <li>Collect Bubbles and unlock sprites to upgrade your avatar</li>
+                            <li>Prove quick reaction time and collect drops for extra bubbles</li>
+                            <li>Participate at events to unlock seasonal sprites</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contentSection hidden" id="admin">
+        <h1>Bot Admin Stuff</h1>
+        <h3>.. or: How to set up the Palantir bot in your server</h3>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>Invite & set up the bot</h2>
+                    <div>
+                        <ul>
+                            <li>Click below to add the bot to your server.</li>
+                            <li>Grant all permissions to ensure proper functionality. <br />If something looks broken... consider setting the given perms.</li>
+                            <li>The bot will create a message and edit it continuously, so the channel should be read-only for members.</li>
+                            <li>Initialize the bot with the command <span class="command">observe</span> <span class="pmReq">#channel</span>.</li>
+                            <li>Invoking commands with @Palantir instead > is also possible.</li>
+                        </ul>
+                        <a href="https://discord.com/oauth2/authorize?client_id=715874397025468417&scope=bot&permissions=329728" target="_blank"><img id="tutorial" src="res/invite.gif" /></a>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Command Documentation</h2>
+                    <div>
+                        Well I hope it's up-to-date, but pls appreciate this.<br /><br />
+                        <a href="#documentation">
+                            <img id="tutorial" class="halfImg" src="res/book.gif" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="contentColumn">
+                <h3>For generic questions read the troubleshoot below.<br />
+                If youre still stuck, hmu on Discord @tobeh#7437.<br />
+                The bot has alot of customization commands available, consider reading the command documentation linked below.</h3>
+                <div class="contentBox">
+                    <h2>Troubleshoot</h2>
+                    <div>
+                        <ul>
+                            <li>
+                                <span class="pmReq">Which commands are usable?</span><br />
+                                Get available commands with <span class="command">help</span>.<br />
+                                Only commands which can be executed by the author are shown.<br />
+                                Every command to change bot settings requires the administrator role permission.
+                            </li>
+                            <li>
+                                <span class="pmReq">What is the server token?</span><br />
+                                The server token is a unique key which lets users see and send lobbies to this server.<br />
+                                This ensures that the lobbies are only visible to users in the server.<br />
+                                If the token is changed, users need to enter the new token to be verified again.
+                            </li>
+                            <li>
+                                <span class="pmReq">How to change the channel?</span><br />
+                                The channel can always be set with the command <span class="command">observe</span> <span class="pmReq">#channel</span>.<br />
+                                If existing, the current bot message will be left as it is and a new one will be created.<br />
+                                By default, the server token will change.<br />
+                                If you want to keep the token as it is, call the command <span class="command">switch</span> <span class="pmReq">#channel</span>.
+                                The command message and bot response with the token can be deleted.
+                            </li>
+                            <li>
+                                <span class="pmReq">The bot does not edit the message.</span><br />
+                                Try to set the channel again.<br />
+                                If this does not help, contact me on DC @tobeh#7437.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="documentation" class="contentSection hidden">
+        <h1>The Holy Command Documentation</h1>
+        <h3>You made it there! Have fun reading that stuff. <br />Tags: #admin #dm #server #everyone #bubbles #event<br />
+        Parameters <span class="pmOpt">like these</span> are optional, <span class="pmReq">these</span> are required.<br /></h3>
+        <h3><input type="text" id="filterCommands" placeholder="Search Keyword"/><span class="pmReq" id="queryRes"></span></h3>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2><span class="command">login</span></h2>
+                    <div>
+                        Creates a palantir user account or shows your login, if existing.<br />
+                        Example: <span class="command">login</span>
+                        <h3>#dm #everyone</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">bubbles</span></h2>
+                    <div>
+                        Shows a manual about Bubbles.<br />
+                        Example: <span class="command">bubbles</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">buy</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Buy the sprite of the <span class="pmID"></span>.<br />
+                        Example: <span class="command">buy</span> <span class="pmReq ex">5</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">inventory</span></h2>
+                    <div>
+                        Shows your inventory.<br />
+                        Example: <span class="command">inventory</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">leaderboard</span></h2>
+                    <div>
+                        Shows your server's Bubble leaderboard.<br />
+                        Example: <span class="command">leaderboard</span>
+                        <h3>#server #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">stat</span> <span class="pmOpt">mode</span></h2>
+                    <div>
+                        Shows Bubble gain statistics.<br />
+                        <span class="pmOpt">mode</span> can be either <span class="pmOpt ex">day</span>,<span class="pmOpt ex">week</span> or <span class="pmOpt ex">month</span>.<br />
+                        Example: <span class="command">stat</span> <span class="pmOpt ex">day</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">event</span> <span class="pmOpt"><span class="pmID"></span></span></h2>
+                    <div>
+                        Shows either the active event or the event with given <span class="pmOpt"><span class="pmID"></span></span>.<br />
+                        Example: <span class="command">event</span> <span class="pmOpt ex">2</span>
+                        <h3>#server #dm #everyone #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">upcoming</span></h2>
+                    <div>
+                        Shows upcoming events.<br />
+                        Example: <span class="command">upcoming</span>
+                        <h3>#server #dm #everyone #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">passed</span></h2>
+                    <div>
+                        Shows passed events.<br />
+                        Example: <span class="command">passed</span>
+                        <h3>#server #dm #everyone #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">switch</span> <span class="pmReq">#channel</span></h2>
+                    <div>
+                        Takes the <span class="pmReq">target channel mention</span>.<br />
+                        Changes the channel for the bot message.<br />
+                        The old message is abandoned.<br />
+                        Generates NO new server token.
+                        Example: <span class="command">switch</span> <span class="pmReq ex">#lobbies</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">addwebhook</span> <span class="pmReq">name</span> <span class="pmReq">url</span></h2>
+                    <div>
+                        Takes the Webhook name as <span class="pmReq">name</span> and Webhook URL as <span class="pmReq">url</span>.<br />
+                        Adds a webhook to a server.<br />
+                        Webhooks enable users to post images to a Discord server by clicking the letter-icon in skribbl.<br />
+                        Multiple webhooks for different channels can be added.<br />
+                        Get the URL by creating a webhook for a channel in discord and click "Copy Webhook URL".<br />
+                        Example: <span class="command">addwebhook</span> <span class="pmReq ex">Art</span> <span class="pmReq ex"> https://discordapp.com/api/webhooks/xx/xx </span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">refreshed</span> <span class="pmReq">state</span></h2>
+                    <div>
+                        <span class="pmReq">state</span> takes 'on' or 'off' as argument. <br />
+                        Sets whether the refreshed timestamp should be displayed in the bot message. <br />
+                        Example: <span class="command">refreshed</span> <span class="pmReq ex">off</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>v
+                <div class="contentBox">
+                    <h2><span class="command">timezone</span> <span class="pmReq">offset</span></h2>
+                    <div>
+                        <span class="pmReq">offset</span> is the UTC offset in hours. <br />
+                        Sets the timezone for the timestamp. <br />
+                        Example: <span class="command">timezone</span> <span class="pmReq ex">-1</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">animated</span> <span class="pmReq">state</span></h2>
+                    <div>
+                        <span class="pmReq">state</span> takes 'on' or 'off' as argument. <br />
+                        Sets whether random animated emojis should be displayed in the bot message. <br />
+                        "On" is highly recommended ;))<br />
+                        Example: <span class="command">animated</span> <span class="pmReq ex">on</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">flag</span> <span class="pmReq">user-id</span> <span class="pmOpt">new-flag</span></h2>
+                    <div>
+                        Either shows existing flags of a user or sets a new flag. <br />
+                        Flags are calculated by binary, just test the command.<br />
+                        Example: <span class="command">flag</span> <span class="pmReq ex">413904306769494018</span> <span class="pmOpt ex">4</span><br />
+                        <h3>#server #dm #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">hardreboot</span> </h2>
+                    <div>
+                        Restarts the bot and pulls from git. <br />
+                        If an update was made, the commit msg is also shown. <br />
+                        Example: <span class="command">hardreboot</span><br />
+                        <h3>#server #dm #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">bash</span> <span class="pmReq">command</span></h2>
+                    <div>
+                        Executes a command in the shell of the server. <br />
+                        Returns the output, whereas commands like htop sadly dont work. <br />
+                        Example: <span class="command">bash</span> <span class="pmReq ex">cd Webroot/Orthanc && git pull</span><br />
+                        <h3>#server #dm #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">sql</span> <span class="pmReq">query</span></h2>
+                    <div>
+                        Executes a query in the Palantir database. <br />
+                        Watch. Out. <br />
+                        Example: <span class="command">sql</span> <span class="pmReq ex">select * from status;</span><br />
+                        <h3>#server #dm #admin</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2><span class="command">sprite</span> <span class="pmOpt"><span class="pmID"></span></span></h2>
+                    <div>
+                        Shows the sprite of the <span class="pmID"></span>.<br />
+                        Without <span class="pmOpt"><span class="pmID"></span></span>, three random sprites are shown.<br />
+                        Example: <span class="command">sprite</span> <span class="pmOpt ex">5</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">use</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Use the sprite of the <span class="pmID"></span>.<br />
+                        Example: <span class="command">use</span> <span class="pmReq ex">5</span>
+                        <h3>#server #dm #everyone #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">calc</span> <span class="pmReq">mode</span> <span class="pmReq">value</span></h2>
+                    <div>
+                        Calculates remaining time for a bubble amount.<br />
+                        <span class="pmReq">mode</span> can be either <span class="pmReq ex">sprite</span>, <span class="pmReq ex">bubbles</span> or <span class="pmReq ex">rank</span>.<br />
+                        Example: <span class="command">calc</span> <span class="pmReq ex">sprite</span> <span class="pmReq ex">5</span><br />
+                        Another: <span class="command">calc</span> <span class="pmReq ex">bubbles</span> <span class="pmReq ex">1500</span><br />
+                        ..Yes..: <span class="command">calc</span> <span class="pmReq ex">rank</span> <span class="pmReq ex">2</span>
+                        <h3>#server #everyone #dm #bubbles</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">gift</span> <span class="pmReq">@user</span> <span class="pmReq">amount</span> <span class="pmReq"><span class="pmID"></span></span></h2>
+                    <div>
+                        Gifts another person event drops. Up to 50% are lost, 3 drops are minimum.<br />
+                        <span class="pmReq">@user</span> mentions the receiver. <br />
+                        <span class="pmReq">amount</span> is the amount of drops which are required for the sprite with the ID <span class="pmReq"><span class="pmID"></span></span>. <br />
+                        Example: <span class="command">gift</span> <span class="pmReq ex">@tobeh</span> <span class="pmReq ex">10</span> <span class="pmReq ex">5</span>
+                        <h3>#server #everyone #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">manual</span> </h2>
+                    <div>
+                        Takes no arguments.<br />
+                        Responds a message with a manual text how to connect the bot with the extension.<br />
+                        Example: <span class="command">manual</span><br />
+                        <h3>#dm #server</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">help</span> <span class="pmOpt">command</span></h2>
+                    <div>
+                        The first thing you should do when you're confused with a command ;)<br />
+                        Lists either all permitted comands or help for specified <span class="pmOpt">command</span>.<br />
+                        Example: <span class="command">help</span> <span class="pmOpt ex">gift</span><br />
+                        <h3>#dm #server #everyone</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">observe</span> <span class="pmReq">#channel</span></h2>
+                    <div>
+                        Takes the <span class="pmReq">target channel mention</span>.<br />
+                        Sets the channel for the bot message and initiates the bot.
+                        Generates a new server token - server member have to enter this (again) in order to use the bot.
+                        <span class="command">observe</span> <span class="pmReq ex">#lobbies</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">webhooks</span> <span class="pmOpt">clear</span></h2>
+                    <div>
+                        Shows all added webhooks for this server.<br />
+                        If <span class="pmOpt">true</span> is passed as clear, all webhooks are removed.<br />
+                        Example: <span class="command">webhooks</span> <span class="pmOpt ex">true</span><br />
+                        Another: <span class="command">webhooks</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">header</span> <span class="pmReq">text</span></h2>
+                    <div>
+                        Sets the bot message header.<br />
+                        <span class="pmReq">text</span> can contain any markup.<br />
+                        Example: <span class="command">header</span> <span class="pmReq ex">**Nice Header**\nWith linebreak :)</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">idle</span> <span class="pmReq">text</span></h2>
+                    <div>
+                        Sets the idle status message of the bot message when no lobbies are active. Same formatting applies as for header.<br />
+                        <span class="pmReq">text</span> can contain any markup.<br />
+                        Example: <span class="command">idle</span> <span class="pmReq ex">*Everyone's chillin.*</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">token</span> <span class="pmReq">state</span></h2>
+                    <div>
+                        <span class="pmReq">state</span> takes 'on' or 'off' as argument. <br />
+                        Sets whether the server token should be displayed in the bot message. <br />
+                        Example: <span class="command">token</span> <span class="pmReq ex">on</span><br />
+                        <h3>#server #admin</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">newevent</span> <span class="pmReq">name</span> <span class="pmReq">duration</span> <span class="pmReq">valid-from</span> <span class="pmReq">description</span></h2>
+                    <div>
+                        Creates a new event, woohoo!<br />
+                        <span class="pmReq">name</span> is obvious, <span class="pmReq">duration</span> is the event length in days, <span class="pmReq">valid-from</span> sets in how many days the event will start and <span class="pmReq">description</span> takes the most creative essay the world has seen.<br />
+                        Yep, I hate timestamp conversions.<br />
+                        Example: <span class="command">newevent</span> <span class="pmReq ex">Wedding</span> <span class="pmReq ex">1</span> <span class="pmReq ex">999999</span> <span class="pmReq ex">Sadly, this will never happen</span><br />
+                        <h3>#server #admin #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">eventdrop</span> <span class="pmReq">event-id</span> <span class="pmReq">name</span></h2>
+                    <div>
+                        Adds an event drop to an event.<br />
+                        A valid GIF has to be attatched to the command. <br />
+                        Example: <span class="command">eventdrop</span> <span class="pmReq ex">2</span> <span class="pmReq ex">Grogu</span><br />
+                        <h3>#server #admin #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">eventsprite</span> <span class="pmReq">drop-id</span> <span class="pmReq">name</span> <span class="pmReq">price</span></h2>
+                    <div>
+                        Adds an event sprite to an event.<br />
+                        A valid GIF has to be attatched to the command. <br />
+                        Example: <span class="command">eventdrop</span> <span class="pmReq ex">9</span> <span class="pmReq ex">Spoon</span> <span class="pmReq ex">15</span><br />
+                        <h3>#server #admin #event</h3>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2><span class="command">ping</span></h2>
+                    <div>
+                        Gets some latency stats of the bot / the server.<br />
+                        Example: <span class="command">ping</span><br />
+                        <h3>#server #dm #everyone</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="interface" class="contentSection hidden">
+        <h1>The Typo Interface</h1>
+        <h3>Click any button or input to reveal its holy mission.</h3>
+        <div class="dummy">
+            <h1>Skribbl Typo</h1>
+            <div class="tabSelection flexrow skribbl sketchful">
+                <div class="tabTitle skribbl" id="tabDashboard">Dashboard</div>
+                <div class="tabTitle tabActive " id="tabDiscord">Discord</div>
+                <div class="tabTitle skribbl" id="tabAdvanced">Advanced</div>
+            </div>
+            <div class="tabContent skribbl sketchful">
+                <div id="palantirSettings" class="sketchful skribbl">
+                    <br />
+                    <br />
+
+                    <div id="login" class="skribbl">
+                        <div id="loginHead" class="label back">Enter your login:</div>
+                        <div class="flexrow flexrowMenu">
+                            <input type="text" autocomplete="off" style="width:5em; flex-basis:unset" id="loginEnter" placeholder="12345678" />
+                            <button type="button" class="active" id="loginSubmit">Login</button>
+                        </div>
+                    </div>
+
+                    <div id="server" class="skribbl" style="">
+                        <div id="loginName" class="label">Tobeh#7437</div>
+                        <div class="label back">Connected Discord Servers</div><br />
+
+                        <div class="flexrow flexrowMenu" style="flex-wrap:wrap" id="authGuilds">
+                            <div class="label">No servers added! Enter a server token below</div>
+                        </div>
+                        <br />
+                        <div class="flexrow flexrowMenu">
+                            <input type="text" autocomplete="off" style="width:5em; flex-basis:unset" id="observeToken" placeholder="12345678" />
+                            <button type="button" class="active" id="verifyToken">Verify</button>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+            <br />
+            <hr class="skribbl" />
+            <div id="footer" class="flexcol">
+                <button type="button" class="active" id="help">How-To</button>
+                <div id="dc" class="flexrow">
+                    <img src="res/dc.gif" height="20" />
+                    <div id="credits" style="margin-left:1em;">
+                        Discord: tobeh#7437
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dummy">
+            <h1>Skribbl Typo</h1>
+            <div class="tabSelection flexrow skribbl sketchful">
+                <div class="tabTitle tabActive skribbl" id="tabDashboard">Dashboard</div>
+                <div class="tabTitle" id="tabDiscord">Discord</div>
+                <div class="tabTitle skribbl  " id="tabAdvanced">Advanced</div>
+            </div>
+            <div class="tabContent skribbl sketchful">
+                <div id="mainSettings" class="skribbl">
+                    <br />
+                    <br />
+                    <div class="flexcol">
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="imageagent">ImageAgent</button>
+                            <button type="button" id="tablet">Tablet</button>
+                        </div>
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="markup">Markup</button>
+                            <!--<button type="button" id="holy">Holy</button>-->
+                        </div>
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="backbutton">Back-Button</button>
+                            <button type="button" id="charbar">CharBar</button>
+                        </div>
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="randomToggle">Random Color</button>
+                        </div>
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="palantirToggle">Discord Bot Status</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <br />
+            <hr class="skribbl" />
+            <div id="footer" class="flexcol">
+                <button type="button" class="active" id="help">How-To</button>
+                <div id="dc" class="flexrow">
+                    <img src="res/dc.gif" height="20" />
+                    <div id="credits" style="margin-left:1em;">
+                        Discord: tobeh#7437
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dummy">
+            <h1>Skribbl Typo</h1>
+            <div class="tabSelection flexrow skribbl sketchful">
+                <div class="tabTitle skribbl" id="tabDashboard">Dashboard</div>
+                <div class="tabTitle" id="tabDiscord">Discord</div>
+                <div class="tabTitle tabActive skribbl" id="tabAdvanced">Advanced</div>
+            </div>
+            <div class="tabContent skribbl sketchful">
+                <div id="advancedSettings" class="skribbl">
+                    <br />
+                    <br />
+                    <div class="flexcol">
+                        <div class="label">Random interval </div>
+                        <div class="sliderBox" id="randomSlider">
+                            <span class="sliderBar"><span class="sliderFill"></span></span>
+                            <input type="range" class="slider" min="10" max="500" />
+                        </div>
+
+                        <div class="label">Markup color  </div>
+                        <div class="sliderBox" id="markupSlider">
+                            <span class="sliderBar"><span class="sliderFill"></span></span>
+                            <input type="range" class="slider" min="0" max="357" />
+                        </div>
+
+                        <div class="label">Tablet sensitivity  </div>
+                        <div class="sliderBox" id="sensSlider">
+                            <span class="sliderBar"><span class="sliderFill"></span></span>
+                            <input type="range" class="slider" min="0" max="100" />
+                        </div>
+
+                        <div>
+                            <div class="label">Color palettes</div>
+                            <div class="flexrow flexrowMenu skribbl" style="flex-wrap:wrap" id="palettes">
+                                <button type="button" id="originalPalette">Original Palette</button>
+                            </div>
+                            <div class="flexrow flexrowMenu">
+                                <input type="text" autocomplete="off" style="width:5em; flex-basis:unset" id="paletteJSON" placeholder="{ ... }" />
+                                <button type="button" class="active" id="enterJSON">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <br />
+            <hr class="skribbl" />
+            <div id="footer" class="flexcol">
+                <button type="button" class="active" id="help">How-To</button>
+                <div id="dc" class="flexrow">
+                    <img src="res/dc.gif" style="image-rendering:unset" height="20" />
+                    <div id="credits" style="margin-left:1em;">
+                        Discord: tobeh#7437
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sprites" class="contentSection hidden">
+        <h1>All Sprites</h1>
+        <h3>Filter by tags: #event #regular #<span class="pmReq">eventdrop</span> #<span class="pmReq">event</span></h3>
+        <h3><input type="button" value="By ID" id="spritesOrderBy"> <input type="button" id="spritesOrderDirection" value="Ascending"><input type="text" id="filterSprites" placeholder="Search Keyword" /><span class="pmReq" id="spriteRes"></span></h3>
+        <div class="flexrow flexcenter" id="spriteList"></div>
+    </div>
+    <div id="footerSection">
+        <h3>Made with <heart></heart> by tobeh | 
+        <a href="https://discord.gg/7W6kV3Qd9Q" target="_blank">Discord <discord></discord></a> | 
+        <a href="https://github.com/toobeeh/" target="_blank">GitHub <git></git></a></h3>
+    </div>
+</body>
+</html>
