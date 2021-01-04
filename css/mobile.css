@@ -6,7 +6,7 @@
         font-size: 5rem;
     }
     h3 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .iconsRow{
         height:30vw;
@@ -45,5 +45,36 @@
         0% {width:50vw}
         50% {width:45vw}
         100% {width:50vw}
+    }
+    img:active, img:focus {
+        outline: 0;
+        border: 0;
+        -moz-outline-style: none;
+    }
+    .contentRow{
+        flex-direction:column;
+    }
+    .contentColumn{width:100%;}
+    .contentBox ul {
+        padding: 0 0 0 3rem;
+    }
+    .contentBox > div {
+        padding-left: 3rem;
+        font-size: 3rem;
+        border-left: 0.75rem solid;
+    }
+    .dummy{
+        width:70%;
+        font-size:1.5rem;
+    }
+    input[type="text"]{
+        margin-top:1.5rem;
+    }
+    .sprite img{
+        width:60vw;
+        height:unset;
+    }
+    .sprite h3{
+        font-size:3rem;
     }
 }
