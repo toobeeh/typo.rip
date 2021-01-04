@@ -116,11 +116,13 @@ let showsection = (sectionID) => {
     // re-calculate body height for background graphics
     //get height of target section 
     let targetheight = target.getBoundingClientRect().height;
+    //get height of footer section 
+    let footerheight = QS("#footerSection").getBoundingClientRect().height;
     // get height of window
     let windowheight = window.innerHeight;
     document.body.style.minHeight = (windowheight > targetheight ?
-        "calc(" + windowheight + "px + 1rem" : // if window is higher than section, body is windowheight + 10vh footer space
-        "calc(" + targetheight + "px + 15vh + 1rem"); // else body is the height of target section + 10vh footer pace + 15vh header space
+        "calc(" + windowheight + "px + " + footerheight + "px)" : // if window is higher than section, body is windowheight + 10vh footer space
+        "calc(" + targetheight + "px + 15vh + " + footerheight + "px)"); // else body is the height of target section + 10vh footer pace + 15vh header space
 }
 // Shows the info card for UI elements of the interface section dummies
 let setInfo = e => {

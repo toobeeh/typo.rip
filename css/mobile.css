@@ -1,0 +1,49 @@
+@media screen and (max-width: 992px) {
+    h1{
+        font-size:7rem;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+    h3 {
+        font-size: 3rem;
+    }
+    .iconsRow{
+        height:30vw;
+    }
+    .icon{
+        width:20vw;
+    }
+    .backgroundSide {
+        display: none;
+    }
+    .contentSection{
+        width:95vw;
+        left:2.5vw;
+    }
+    #logo {
+        height:auto;
+        position: absolute;
+        left: 0;
+    }
+    #navPlanCont {
+        position: absolute;
+        width: 50vw;
+        right: 0;
+        height: 50vw;
+        top: -25vw;
+        animation-name: pulseMoon;
+        animation-iteration-count: infinite;
+        animation-duration: 5s;
+        animation-delay: -2.5s;
+        animation-timing-function: ease-in-out;
+    }
+    #navPlan {
+        position:absolute;
+    }
+    @keyframes pulseMoon {
+        0% {width:50vw}
+        50% {width:45vw}
+        100% {width:50vw}
+    }
+}
