@@ -1,2 +1,3 @@
 # typo.rip
-Website for typo &amp; palantir
+[Website for Typo and Palantir](https://typo.rip)
+
