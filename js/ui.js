@@ -143,6 +143,14 @@ let setInfo = e => {
         info = "Markup <br><br>"
         info += "Changes the background color of your chat messages so it's easier for you to keep view.<br>";
     }
+    else if (e.id == 'controls') {
+        info = "Side Controls <br><br>"
+        info += "Show or hide side controls like sound, fullscreen, gallery cloud and tablet mode.<br>";
+    }
+    else if (e.id == 'clear') {
+        info = "Dont Clear <br><br>"
+        info += "Prevents the canvas from being cleared after someone finished drawing.<br>Fun in custom lobbies when everyone activates this!.<br>";
+    }
     else if (e.id == 'holy') {
         info = "Holy <br><br>"
         info += "Nothing except a small ego boost :D.<br>";
