@@ -2,6 +2,18 @@
 let QS = (selector) => document.querySelector(selector);
 // Shortcut for document queryselector-all
 let QSA = (selector) => document.querySelectorAll(selector);
+let refreshWIndowSize = () => {
+    // re-calculate body height for background graphics
+    //get height of target section 
+    let targetheight = target.getBoundingClientRect().height;
+    //get height of footer section 
+    let footerheight = QS("#footerSection").getBoundingClientRect().height;
+    // get height of window
+    let windowheight = window.innerHeight;
+    document.body.style.minHeight = (windowheight - footerheight > targetheight ?
+        windowheight + "px" : // if window minus footer is higher than section, body is windowheight
+        "calc(" + targetheight + "px + 15vh + " + footerheight + "px)"); // else body is the height of target section + footer space + 15vh header space
+}
 // Filters a set of element that match given selector by inner text. Sets display none or unset.
 let filterElements = (selectorElements, selectorResult, searchText) => {
     // split search text to tags
@@ -21,6 +33,7 @@ let filterElements = (selectorElements, selectorResult, searchText) => {
     });
     // show result count on element with passed selector
     QS(selectorResult).innerText = found;
+    refreshWIndowSize();
 }
 // Orders sprites
 let orderSprites = (e) => {
@@ -113,16 +126,8 @@ let showsection = (sectionID) => {
     sections.forEach(s => s.classList.add("hidden"));
     // remove hidden class from target section
     target.classList.remove("hidden");
-    // re-calculate body height for background graphics
-    //get height of target section 
-    let targetheight = target.getBoundingClientRect().height;
-    //get height of footer section 
-    let footerheight = QS("#footerSection").getBoundingClientRect().height;
-    // get height of window
-    let windowheight = window.innerHeight;
-    document.body.style.minHeight = (windowheight - footerheight > targetheight ?
-        windowheight + "px" : // if window minus footer is higher than section, body is windowheight
-        "calc(" + targetheight + "px + 15vh + " + footerheight + "px)"); // else body is the height of target section + footer space + 15vh header space
+    //refresh window height
+    refreshWIndowSize();
 }
 // Shows the info card for UI elements of the interface section dummies
 let setInfo = e => {
