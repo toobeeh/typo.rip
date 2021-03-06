@@ -7,7 +7,11 @@
 
     <meta name="theme-color" content="#36aac7">
     <meta property="og:site_name" content="Everything about Typo & Palantir">
-    <meta property="og:title" content="Skribbl Typo" />
+    <script>
+        document.write('<meta property="og:title" content="Skribbl Typo');
+        let hash = window.location.hash.replace("#", "");
+        document.write((hash != "" ? ": " + hash : "") + '" />');
+    </script>
     <meta property="og:description" content="Skribbl Typo is the most advanced toolbox for skribbl.io.
           Theme skribbl, find friends and draw better.
           Add it now for Chrome, Firefox, Opera and Edge." />
