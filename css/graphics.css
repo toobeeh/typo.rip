@@ -8,6 +8,7 @@ html {
     image-rendering: -moz-crisp-edges;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    animation-play-state: paused !important;
 }
 *::-webkit-scrollbar {
     display: none;
