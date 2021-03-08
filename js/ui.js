@@ -2,7 +2,7 @@
 let QS = (selector) => document.querySelector(selector);
 // Shortcut for document queryselector-all
 let QSA = (selector) => document.querySelectorAll(selector);
-let refreshWIndowSize = () => {
+let refreshWindowSize = (target) => {
     // re-calculate body height for background graphics
     //get height of target section 
     let targetheight = target.getBoundingClientRect().height;
@@ -33,7 +33,7 @@ let filterElements = (selectorElements, selectorResult, searchText) => {
     });
     // show result count on element with passed selector
     QS(selectorResult).innerText = found;
-    refreshWIndowSize();
+    refreshWindowSize(QS(".contentSection:not(.hidden)"));
 }
 // Orders sprites
 let orderSprites = (e) => {
@@ -117,7 +117,7 @@ let showsection = (sectionID) => {
     // if section id is empty, section is set to home section
     if (sectionID == null || sectionID.trim() == "") target = QS("#home");
     else {
-        // else get setion element
+        // else get section element
         target = QS("#" + sectionID);
         // if section element is null, section is set to home section
         if (!target) target = QS("#home");
@@ -127,7 +127,7 @@ let showsection = (sectionID) => {
     // remove hidden class from target section
     target.classList.remove("hidden");
     //refresh window height
-    refreshWIndowSize();
+    refreshWindowSize(target);
 }
 // Shows the info card for UI elements of the interface section dummies
 let setInfo = e => {
