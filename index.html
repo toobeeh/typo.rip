@@ -40,7 +40,7 @@
         <a href="#documentation"><div class="cloudsLeftFore backgroundSide animateFore"></div></a>
         <div class="cloudsRightBack backgroundSide animateBack"></div>
         <a href="#documentation"><div class="cloudsRightFore backgroundSide animateFore"></div></a>
-</div>
+    </div>
     <div class="flexrow flexbetween fullwidth" id="logoContainer">
         <a href="#home"><img id="logo" src="res/moon.gif" /></a>
         <div id="navPlanCont"><img id="navPlan" src="res/navPlan.gif"><img id="navPlanCap" src="res/navPlanOverlay.gif"></div>
@@ -314,9 +314,11 @@
                 </div>
             </div>
             <div class="contentColumn">
-                <h3>For generic questions read the troubleshoot below.<br />
-                If youre still stuck, hmu on Discord @tobeh#7437.<br />
-                The bot has alot of customization commands available, consider reading the command documentation linked below.</h3>
+                <h3>
+                    For generic questions read the troubleshoot below.<br />
+                    If youre still stuck, hmu on Discord @tobeh#7437.<br />
+                    The bot has alot of customization commands available, consider reading the command documentation linked below.
+                </h3>
                 <div class="contentBox">
                     <h2>Troubleshoot</h2>
                     <div>
@@ -352,11 +354,13 @@
             </div>
         </div>
     </div>
-    <div class="contentSection hidden" id="documentation" >
+    <div class="contentSection hidden" id="documentation">
         <h1>The Holy Command Documentation</h1>
-        <h3>You made it there! Have fun reading that stuff. <br />Tags: #admin #dm #server #everyone #bubbles #event<br />
-        Parameters <span class="pmOpt">like these</span> are optional, <span class="pmReq">these</span> are required.<br /></h3>
-        <h3><input type="text" id="filterCommands" placeholder="Search Keyword"/><span class="pmReq" id="queryRes"></span></h3>
+        <h3>
+            You made it there! Have fun reading that stuff. <br />Tags: #admin #dm #server #everyone #bubbles #event<br />
+            Parameters <span class="pmOpt">like these</span> are optional, <span class="pmReq">these</span> are required.<br />
+        </h3>
+        <h3><input type="text" id="filterCommands" placeholder="Search Keyword" /><span class="pmReq" id="queryRes"></span></h3>
         <div class="contentRow fullwidth">
             <div class="contentColumn">
                 <div class="contentBox">
@@ -663,7 +667,7 @@
             </div>
         </div>
     </div>
-    <div class="contentSection hidden"id="interface">
+    <div class="contentSection hidden" id="interface">
         <h1>The Typo Interface</h1>
         <h3>Click any button or input to reveal its holy mission.</h3>
         <div class="dummy">
@@ -822,16 +826,117 @@
             </div>
         </div>
     </div>
-    <div class="contentSection hidden" id="sprites" >
+    <div class="contentSection hidden" id="sprites">
         <h1>All Sprites</h1>
         <h3>Filter by tags: #event #regular #<span class="pmReq">eventdrop</span> #<span class="pmReq">event</span></h3>
         <h3><input type="button" value="By ID" id="spritesOrderBy"> <input type="button" id="spritesOrderDirection" value="Ascending"><input type="text" id="filterSprites" placeholder="Search Keyword" /><span class="pmReq" id="spriteRes"></span></h3>
         <div class="flexrow flexcenter" id="spriteList"></div>
     </div>
+    <div class="contentSection hidden" id="workshop">
+        <h1>Sprite Workshop</h1>
+        <h3>Get started with drawing your own sprites</h3>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn">
+                <div class="contentBox">
+                    <h2>Introduction</h2>
+                    <div>
+                        In the following paragraphs you will find everything you need to know to draw your own sprite.<br />
+                        <b>Before submitting or asking for help, please make sure you have read all sections!</b><br />
+                        Here a checklist what you need to get started:
+                        <ul>
+                            <li>An image editor: Photoshop (Recommended), Gimp (Free) or anything else you´re comfortable with</li>
+                            <li>The sprites template - download <a href="https://cdn.discordapp.com/attachments/796787836643704872/822183729240866866/template.psd">here</a></li>
+                            <li>Basic knowledge about painting and layers in your image editor.</li>
+                            <li>An idea for a sprite ;)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>About Sprites</h2>
+                    <div>
+                        There are a few guidelines you should follow:
+                        <ul>
+                            <li>Sprites are an image which is shown over the skribbl avatar.</li>
+                            <li>Sprites should follow the overall sprite style. If youre not sure if the sprite fits, contact tobeh before drawing.</li>
+                            <li>No insider-jokes or personal rather unpopular "favourite characters". Sprites should be fun for everyone!</li>
+                            <li>No duplicate sprites just for other colors / details. Each sprite should have its own idea behind.</li>
+                            <li>Don't make oversized sprites. The sprite should be mostly in the avatar area.</li>
+                            <li>No flashy / annoying animations.</li>
+                            <li>Sprites and the Avatar are GIF animations - the frame delay looks best with 0.25s each frame.</li>
+                            <li>
+                                GIFs dont support semi-transparent pixels. Means: Use a transparent background and only solid colors.<br />
+                                Warning: Standard brushes have semi-transparent pixels, use a pixel brush!
+                            </li>
+                            <li>
+                                The avatar has two frames. Anyway, if you draw a sprite with two frames, they will "overlap" the avatar animation.<br />
+                                Like: Sometimes the sprite frame 2 is on avatar frame 1, sometimes sprite 2 on avatar 1, etc...<br />
+                                This means EVERY sprite frame has to fit on every avatar frame! More about that later.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>The basic workflow</h2>
+                    <div>
+                        A few straightforward steps how to draw your sprite:
+                        <ol>
+                            <li>Open the template file above - you'll see three groups: template (Sample avatar frames), Angel and Squid (Sample sprites)</li>
+                            <li>Hide all groups except one of the both avatar frames. This layer will be your template.</li>
+                            <li>Create a new layer in a new group which will be your sprite layer.</li>
+                            <li>Draw a sprite sketch - outlines, a few colors. Then disable the activated avatar frame and view the other avatar frame.</li>
+                            <li>You will notice the avatar moved slightly - adjust the sprite so it fits on BOTH avatar frames.</li>
+                            <li>This can be tricky on sprites which depend on the avatar outlines - see the Angel sample sprite.</li>
+                            <li>As soon as you finished details, shadows and outlines, copy the sprite layer.</li>
+                            <li>You now have two layers - each is a frame. Since the sprite should have a slight movement, you'll have to edit one of the frames.</li>
+                            <li>
+                                Simple "moving" effects can be achieved by transforming the layer - wider, higher, bigger - and editing the shadows slightly. <br />
+                                You can also remove the details and re-draw them to make the new frame look a bit different.
+                            </li>
+                            <li>
+                                Always check that the frame you're editing fits both avatar frames.
+                            </li>
+                            <li>
+                                As soon as you think the sprite is finished, you can move to creating the gif.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Animating it</h2>
+                    <div>
+                        Photoshop users have a clear advantage:
+                        <ul>
+                            <li>Photoshop lets you preview &Aacute; export the gif easily.</li>
+                            <li>Open the timeline and create a frame animation</li>
+                            <li>Create two frames and enable only one of the sprite layers on a frame</li>
+                            <li>Set the frame delay to 0.25s &Aacute; click play to preview the animation</li>
+                            <li>To export the sprite as gif, click "File > Export > Save for Web"</li>
+                        </ul>
+                        If you dont have photoshop:
+                        <ul>
+                            <li>Search the web how to preview (Gimp has no preview)</li>
+                            <li>Search the web how to export as GIF (Gimp has this ;))</li>
+                            <li>OR: save both layers as PNG and create a gif with a random online gif creator</li>
+                            <li>OR: send me the project file &Aacute; I will create the GIF for you</li>
+                        </ul>
+                    </div>
+                    <h2>That's it!</h2>
+                    <div>
+                        You now have the permission to ask me any further questions ;)<br />
+                        As soon as you finished the sprite, send me the gif/project and your wish for a name and price.<br />
+                        If the sprite fits all requirements, I usually can add it within a day.
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
     <div id="footerSection">
-        <h3>Made with <heart></heart> by tobeh | 
-        <a href="https://discord.gg/7W6kV3Qd9Q" target="_blank">Discord <discord></discord></a> | 
-        <a href="https://github.com/toobeeh/" target="_blank">GitHub <git></git></a></h3>
+        <h3>
+            Made with <heart></heart> by tobeh |
+            <a href="https://discord.gg/7W6kV3Qd9Q" target="_blank">Discord <discord></discord></a> |
+            <a href="https://github.com/toobeeh/" target="_blank">GitHub <git></git></a>
+        </h3>
     </div>
 </body>
 </html>
