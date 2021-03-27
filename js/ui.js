@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // build card html
         let eventdrop = drops.find(d => d.EventDropID == s.EventDropID);
         let sprite = `
-            <div class="sprite" data-id="${s.ID}" data-price="${s.Cost}">
+            <div class="sprite" data-id="${s.ID}" data-price="${s.Cost}" style="order: ${s.ID}">
                 <div><h3>#${s.ID}</h3></div>
                 <div><h3>Price: ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
                 <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
