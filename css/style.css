@@ -131,6 +131,7 @@ h3 {
 .sprite > div{width:100%; text-align:center;}
 .sprite img{height:10rem;}
 .sprite h3 {font-size:0.8rem;}
+.sprite h2 {font-size:1.3rem;}
 #spriteList{flex-wrap:wrap}
 
 .command{color:white}
