@@ -31,10 +31,10 @@ body {
     #backgroundClouds:before {
         content:"";
         position: absolute;
-        top: -100%;
-        left: -100%;
-        width: 400%;
-        height: 400%;
+        top: -350%;
+        left: -350%;
+        width: 800%;
+        height: 800%;
         background-image: url(../res/backStars.gif);
         background-size: 35vw;
         background-repeat: repeat;
@@ -53,46 +53,59 @@ body {
     opacity: 1;
 }
     .backgroundSide:hover {
-        filter: drop-shadow(0px 0px 0.8em rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0px 0px 0.8em rgb(255, 255, 255, 0.1));
     }
 @keyframes moveFg{
-    0% {background-position-y: 0vh;}
-    50% {background-position-y: 1vh;}
-    100% {background-position-y: 0vh;}
+    0% {transform:translateY(0);}
+    50% {transform:translateY(2vh);}
+    100% {transform:translateY(0);}
 }
 @keyframes moveBg {
-    0% {background-position-x: 0vw;}
-    50% {background-position-x: 1vw;}
-    100% {background-position-x: 0vw;}
+    0% {transform:translateX(0);}
+    50% {transform:translateX(2vw);}
+    100% {transform:translateX(0);}
 }
 @keyframes rotate {
     0% {transform:rotate(0deg);}
     100% {transform:rotate(360deg)}
 }
 @keyframes pulseMoon {
-    0% {/*height:70%*/ transform:scale(1);}
-    50% {/*height:78%*/ transform: scale(1.2);}
-    100% {/*height:70%*/ transform:scale(1);}
+    0% {transform:scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform:scale(1);}
 }
 @keyframes hopUp {
-    0% {top: 8vh}
-    50% {top: 10vh}
-    100% {top:8vh}
+    0% {transform:translateY(0);}
+    50% {transform:translateY(2vh);}
+    100% {transform:translateY(0);}
+}
+@keyframes wiggle {
+    0% {transform:rotate(-5deg);}
+    100% {transform:rotate(5deg);}
 }
 @keyframes pulseIcons {
-    0% {margin:1em}
-    50% {margin:0.5em}
-    100% {margin:1em}
+    0% {transform:rotate(calc(var(--axis) * 5deg));}
+    50% {transform:translateX(calc(var(--axis) * 2em)) rotate(calc(var(--axis) * 15deg));}
+    100% {transform:rotate(calc(var(--axis) * 5deg));}
 }
-.cloudsLeftBack{
+.cloudsBack{
     left:-3vw;
     z-index:1;
     background-image: url(../res/cloudsBg.gif);
 }
-.cloudsLeftFore {
+.cloudsFore {
     left: 0;
     z-index: 2;
     background-image: url(../res/cloudsFg.gif);
+}
+.backgroundRight {
+    position: absolute;
+    height: 100%;
+    transform: translateX(100vw) scaleX(-1);
+}
+.backgroundLeft{
+    position:absolute;
+    height:100%;
 }
 
 .animateBack {
@@ -106,20 +119,6 @@ body {
     animation-iteration-count: infinite;
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
-}
-
-.cloudsRightBack {
-    right: -3vw;
-    z-index: 1;
-    transform: scaleX(-1);
-    background-image: url(../res/cloudsBg.gif);
-}
-
-.cloudsRightFore {
-    right: 0;
-    z-index: 2;
-    transform: scaleX(-1);
-    background-image: url(../res/cloudsFg.gif);
 }
 #logoContainer {
     z-index: 2;
@@ -172,15 +171,21 @@ body {
     height:200%;
     transition:top 0.5s, opacity 0.2s;
     cursor:pointer;
+    animation-name: wiggle;
+    animation-duration: 4s;
+    animation-direction:alternate-reverse;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
 }
     #navPlanCont:hover {
-        filter: drop-shadow(0px 0px 1em rgba(255, 255, 255, 0.3));
+        
         top:-70%;
     }
 .iconsRow {
     user-select: none;
     margin: 2em 0;
     height:8rem;
+    --axis: 0;
 }
 .glowYellow{
     animation-name: glowYellow;
@@ -189,10 +194,10 @@ body {
     animation-timing-function:ease-in-out;
 }
 .iconsRow > div:last-child {
-    transform: rotate(10deg);
+    --axis: 1;
 }
 .iconsRow > div:first-child {
-    transform: rotate(-10deg);
+    --axis: -1;
 }
 .icon {
     width: 6rem;

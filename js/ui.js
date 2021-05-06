@@ -283,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
+    console.log("dom loaded!! yeet");
     // load sprites json from server
     let response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
     let sprites = response.Sprites;
@@ -318,6 +319,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         QS("#filterSprites").value = "#regular";
         QS("#filterSprites").dispatchEvent(new Event("input"));
     }, 100);
+    console.log("js finished!! yeet");
 });
 // When hash in url changed (eg through navigation anchors) set displayed section
 window.addEventListener("hashchange", () => {
