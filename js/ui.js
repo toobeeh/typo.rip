@@ -111,6 +111,11 @@ let shownav = () => {
 }
 // Shows a section by its ID and hides every other
 let showsection = (sectionID) => {
+    // scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
     // get all sections
     let sections = QSA(".contentSection");
     let target;
@@ -296,12 +301,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         let eventdrop = drops.find(d => d.EventDropID == s.EventDropID);
         let sprite = `
             <div class="sprite" data-id="${s.ID}" data-price="${s.Cost}" style="order: ${s.ID}">
-                <div><h3>#${s.ID}</h3></div>
-                ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
-                <div><h3>Price: ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
-                <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
-                <div><h2>${s.Name}</h2></div>
-                <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+                <div tabindex="0" class="thumbnail" style="background-image: url(${s.URL})"> </div>
+                <div class="card">
+                    <div><h3>#${s.ID}</h3></div>
+                    <div><h2>${s.Name}</h2></div>
+                    <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
+                    ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
+                    <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
+                    <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+                </div>
             </div>`;
         container.innerHTML += sprite;
     });
@@ -317,7 +325,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         // set initial filter to regular
         QS("#filterSprites").value = "#regular";
-        QS("#filterSprites").dispatchEvent(new Event("input"));
+        //QS("#filterSprites").dispatchEvent(new Event("input"));
     }, 100);
     console.log("js finished!! yeet");
 });

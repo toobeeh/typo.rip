@@ -165,17 +165,17 @@ body {
     left: 0;
     right: 0;
 }
-#navPlanCont{
-    position:relative;
-    top:-90%;
-    height:200%;
-    transition:top 0.5s, opacity 0.2s;
-    cursor:pointer;
+#navPlanCont {
+    position: relative;
+    top: -90%;
+    height: 200%;
+    transition: top 0.5s, opacity 0.2s;
+    cursor: pointer;
     animation-name: wiggle;
     animation-duration: 4s;
-    animation-direction:alternate-reverse;
-    animation-iteration-count:infinite;
-    animation-timing-function:ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
     #navPlanCont:hover {
         

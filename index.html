@@ -18,10 +18,13 @@
     <link rel="stylesheet" type="text/css" href="css/popup.css" />
     <link rel="stylesheet" type="text/css" href="css/mobile.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500;600;700&display=swap');
+    </style>
     <script src="js/ui.js"></script>
-    <title> ⚰️ Typo</title>
-    <link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
+    <title>Typo.rip ⚰️ </title>
+    <link rel="shortcut icon" type="image/x-icon" href="res/128MaxFit.png">
 </head>
 <body>
     <div id="navBack"></div>
@@ -225,7 +228,9 @@
                             <li>Highlight your messages in the chat</li>
                             <li>Use custom emojis like in Discord with :emoji-name:</li>
                             <li>Use kick-- like-- shame-- to quickly kick, like or dislike from the chat</li>
+                            <li>Click CTRL in the chatbox to open a quick reaction menu for the arrow keys</li>
                             <li>Click [TAB] to auto-focus the chat input</li>
+                            <li>Select chat content to copy it formatted for Discord</li>
                         </ul>
                     </div>
                 </div>
@@ -233,7 +238,8 @@
                     <h2>Drawing</h2>
                     <div>
                         <ul>
-                            <li>Pressure sensitivity (Windows Ink required)</li>
+                            <li>A prectise mode with unlimited time (click the avatar on the start page)</li>
+                            <li>Pressure sensitivity (Windows Ink / drivers required)</li>
                             <li>Pressure modes: Brush thickness, Color Brightness (HSL: L), Color Degree (HSL: H)</li>
                             <li>Free Draw Mode (Click the avatar on the skribbl frontpage)</li>
                             <li>Back-Button to undo last step (not 100% stable)</li>
@@ -269,7 +275,8 @@
                             <li>Save drawing process animation as GIF</li>
                             <li>Share images with one click on your Discord servers</li>
                             <li>Copy and save drawings to be automatically re-drawn (ImageTools)</li>
-                            <li>If you connected palantir, every drawing is automatically saved in the cloud gallery</li>
+                            <li>If you have connected palantir, every drawing is automatically saved in the cloud gallery</li>
+                            <li>Paste PNGs on the prectise canvas</li>
                         </ul>
                     </div>
                 </div>
@@ -931,7 +938,87 @@
                     </div>
                 </div>
             </div>
-            
+
+        </div>
+    </div>
+    <div class="contentSection hidden" id="privacy">
+        <h1>Data Privacy Statement</h1>
+        <h3>How Palantir & Typo use and collect data</h3>
+        <div class="contentRow fullwidth">
+            <div class="contentColumn fullwidth">
+                <div class="contentBox">
+                    <h2>Introduction</h2>
+                    <div>
+                        Typo and Palantir ONLY collect data if you create a Palantir account and connect it to the Typo extension.<br />
+                        When you create a account by messaging the bot >login , you accept to this data privacy statement.<br />
+                        The only purpose of the collected data is to make the Palantir features work and create a personal skribbl image gallery (Typo cloud).<br />
+                        Your data is stored on a private server and is ONLY accessible to you and the Typo developer, tobeh.<br />
+                        Your data will not be shared with anyone else.<br /><br />
+                        To request your data / get support about Typo, data privacy or anything related join the Typo Discord server.<br />
+                        <h3>Of all following listed data, your Discord ID and username is the only individual-related data.</h3>
+                        <h3>Sensitive data (eg. user generated content) is marked as bold thext.</h3>
+                        Every data exchange between the Typo extension and the Palantir server is encrypted with SSL or WSS.
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Data collected by the Palantir Discord Bot</h2>
+                    <div>
+                        As soon as you create a Palantir account, following data is immediately saved:
+                        <ul>
+                            <li>Your Discord ID to identify you on Discord</li>
+                            <li>Your new login number</li>
+                            <li>Your current Discord username</li>
+                        </ul>
+                        As soon as the Palantir bot is initialized by an admin, the server's properties are saved:
+                        <ul>
+                            <li>The server's name</li>
+                            <li>The server's ID</li>
+                            <li>The Palantir message and channel ID</li>
+                            <li>The new server token</li>
+                            <li>As soon as added, a webhook ID and name</li>
+                        </ul>
+                        By connecting the bot to typo and start collecting bubbles and buying sprites, following data is collected:
+                        <ul>
+                            <li>Your bubbles (daily count for statistics)</li>
+                            <li>Your bought sprites</li>
+                            <li>Your caught drops</li>
+                        </ul>
+                        By subscribing on patreon, being banned or gaining extra permissions, following data is additionally saved:
+                        <ul>
+                            <li>Your flags (permissions)</li>
+                            <li>Your patron emoji</li>
+                            <li>Your patronized member ID</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Data collected by the Typo browser extension</h2>
+                    <div>
+                        ONLY if you have connected your Palantir account to the Typo extension, following data is collected.<br />
+                        If you add a server by its server token, data is added to your account:
+                        <ul>
+                            <li>The server's properties as above listed</li>
+                        </ul>
+                        If you enable the Discord bot status, following data is stored temporary  to display your lobby:
+                        <ul>
+                            <li><b>The lobby's properties: Player names, scores, current drawer, ranking, language, link, mode and description</b></li>
+                            <li>Your current status (searching, waiting, playing)</li>
+                            <li>A random session ID</li>
+                            <li><b>Your login name</b></li>
+                        </ul>
+                        If you catch a drop:
+                        <ul>
+                            <li>The drop ID along with your login is saved to detect suspicious drop catcher bot actions</li>
+                        </ul>
+                        Every drawing during a game is saved to the Typo gallery cloud:
+                        <ul>
+                            <li><b>The drawing (as base64 data url)</b></li>
+                            <li><b>The drawing's drawing progress (commands to re-draw it)</b></li>
+                            <li><b>Meta: the drawers name, date, if you were the drawer and if the drawing was made in a public lobby</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="footerSection">
@@ -940,6 +1027,9 @@
             <a href="https://discord.gg/7W6kV3Qd9Q" target="_blank">Discord <discord></discord></a> |
             <a href="https://github.com/toobeeh/" target="_blank">GitHub <git></git></a> |
             <a href="https://www.patreon.com/skribbltypo" target="_blank">Patreon</a>
+        </h3>
+        <h3>
+            <a href="#privacy">Data Privacy Statement</a>
         </h3>
     </div>
 </body>

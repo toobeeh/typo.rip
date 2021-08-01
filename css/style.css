@@ -123,15 +123,64 @@ h3 {
 }
 
 .sprite {
-    border: 2px solid #7289da;
-    border-radius:.5em;
-    padding:1em;
-    margin:1.5em;
+    margin: 1.5em;
+    position: relative;
+    width: 8rem;
+    height: 8rem;
 }
-.sprite > div{width:100%; text-align:center;}
-.sprite img{height:10rem;}
-.sprite h3 {font-size:0.8rem;}
-.sprite h2 {font-size:1.3rem;}
+    .sprite .card {
+        position: absolute;
+        border: 2px solid #7289da;
+        box-shadow: 0 19px 18px rgb(104 125 198 / 21%), 0 -5px 12px rgb(114 137 218 / 57%);
+        border-radius: .5em;
+        padding: 1em;
+        box-sizing: border-box;
+        width: 140%;
+        left: -20%;
+        top: -50%;
+        z-index: 1;
+        background-color: black;
+        transform: scale(0);
+        opacity: 0;
+        transition: all .2s cubic-bezier(0, 0.55, 0.45, 1);
+    }
+    .sprite .thumbnail {
+        border-radius: 1rem;
+        background-repeat: no-repeat;
+        background-color: #ffffff08;
+        background-position: center;
+        background-size: contain;
+        height:100%;
+        width:100%;
+        cursor:pointer;
+        transform:scale(1);
+        transition:all .1s ease;
+    }
+
+        
+        .sprite .thumbnail:hover + .card, .sprite .card:hover{
+            transform: scale(0.9);
+            opacity: 1;
+            display: block;
+            transition-delay: .25s;
+        }
+        .sprite .thumbnail:focus + .card {
+            transform: scale(0.9);
+            opacity: 1;
+            display: block;
+        }
+        .sprite .thumbnail:hover {
+            background-color: #7289da40;
+            transform:scale(0.9);
+        }
+
+        .sprite > div {
+            width: 100%;
+            text-align: center;
+        }
+.sprite img{width:100%;}
+.sprite h3 {font-size:0.8em; margin:0.3em;}
+.sprite h2 {font-size:1.3em; margin:0.3em;    word-break: break-word;}
 #spriteList{flex-wrap:wrap}
 
 .command{color:white}

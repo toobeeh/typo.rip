@@ -70,11 +70,10 @@
     input[type="text"]{
         margin-top:1.5rem;
     }
-    .sprite img{
-        width:60vw;
-        height:unset;
-    }
-    .sprite h3{
-        font-size:3rem;
+    
+    .sprite{
+        height:30vw;
+        width:30vw;
+        font-size:2.5rem;
     }
 }
