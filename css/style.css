@@ -55,6 +55,7 @@
     font-size:1rem;
     border-left: 0.25rem solid;
     border-color: inherit;
+    font-family: system-ui;
 }
 .contentBox > div img{
     width:100%;

@@ -81,7 +81,7 @@ let shownav = () => {
             background-image: url(res/navPlan.gif);
             background-size: cover;
             z-index:4;
-            filter: drop-shadow(0px 0px 1em rgba(255, 255, 255, 0.3));
+            /*filter: drop-shadow(0px 0px 1em rgba(255, 255, 255, 0.3));*/
             transition: all 0.5s ease !important;
         }
     `;
@@ -110,6 +110,14 @@ let shownav = () => {
     }, 50);
 }
 // Shows a section by its ID and hides every other
+const sectionNames = {
+    "features": "Features",
+    "interface": "Popup",
+    "sprites": "Sprites",
+    "palantir": "Palantir",
+    "admin": "Admin",
+    "home": "Home"
+}
 let showsection = (sectionID) => {
     // scroll to top
     window.scrollTo({
@@ -127,6 +135,7 @@ let showsection = (sectionID) => {
         // if section element is null, section is set to home section
         if (!target) target = QS("#home");
     }
+    document.title = sectionNames[target.id] + " | Typo.rip ⚰️";
     // hide all sections
     sections.forEach(s => s.classList.add("hidden"));
     // remove hidden class from target section
@@ -295,6 +304,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let drops = response.Drops;
     // get sprites container
     let container = QS("#spriteList");
+    let spriteListHTML = "";
     // create sprite card for each sprite
     sprites.forEach(s => {
         // build card html
@@ -311,8 +321,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
                 </div>
             </div>`;
-        container.innerHTML += sprite;
+        spriteListHTML += sprite;
     });
+    container.innerHTML = spriteListHTML;
     setTimeout(() => {
         // if sprites section is active when sprites are loaded, re-set section so background height is adjusted
         if (window.location.hash.substr(1) == "sprites") showsection("sprites");
@@ -325,7 +336,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         // set initial filter to regular
         QS("#filterSprites").value = "#regular";
-        //QS("#filterSprites").dispatchEvent(new Event("input"));
+        QS("#filterSprites").dispatchEvent(new Event("input"));
     }, 100);
     console.log("js finished!! yeet");
 });
