@@ -116,7 +116,10 @@ const sectionNames = {
     "sprites": "Sprites",
     "palantir": "Palantir",
     "admin": "Admin",
-    "home": "Home"
+    "home": "Home",
+    "documentation": "Commands",
+    "privacy": "Privacy",
+    "workshop": "Creator"
 }
 let showsection = (sectionID) => {
     // scroll to top
