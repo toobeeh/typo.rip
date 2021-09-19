@@ -362,6 +362,18 @@ document.addEventListener("DOMContentLoaded", () => {
         o.addEventListener("click", setInfo);
         o.addEventListener("input", setInfo);
     });
+    // func to convert base64 to blob
+    const dataURIToBlob = (dataURI) => {
+        const splitDataURI = dataURI.split(',')
+        const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+        const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+
+        const ia = new Uint8Array(byteString.length)
+        for (let i = 0; i < byteString.length; i++)
+            ia[i] = byteString.charCodeAt(i)
+
+        return new Blob([ia], { type: mimeString })
+    }
     // set customcard changes
     const updateCard = async () => {
         // get values
@@ -372,7 +384,21 @@ document.addEventListener("DOMContentLoaded", () => {
         let backgroundop = parseFloat(QS("#backgroundop input").value);
         let backgroundimg = QS("#backgroundimg input").value.trim();
         let img = await loadImg(backgroundimg);
-        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + (img ? backgroundimg : "-") + " " + backgroundop + " " + headerop;
+        let imgurLink = "-";
+        if (img) {
+            const formdata = new FormData()
+            formdata.append("image", DataURIToBlob(cardSprite))
+            fetch("https://api.imgur.com/3/image/", {
+                method: "post",
+                headers: {
+                    Authorization: "Client-ID f35028dc12789c5"
+                },
+                body: formdata
+            }).then(data => data.json()).then(data => {
+                imgurLink = data.data.link;
+            });
+        }
+        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
         setCustomcard(headercol, lighttext, darktext, img, backgroundop, headerop);
     }
     // init swatches
