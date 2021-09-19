@@ -23,25 +23,25 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, profileUri, ba
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
         let greyout = " #early, moderator * {opacity: .5}";
         let svg = card.contentDocument.firstChild.innerHTML;
-        svg = svg.replace("$username$", username)
-            .replace("$bubbles$", 1000 + " Bubbles")
-            .replace("$drops$", 100 + " Drops")
-            .replace("$dropratio$", "1: Newbie")
-            .replace("$firstseen$", "1.1.2000")
-            .replace("$sprites$", " 0 bought")
-            .replace("$events$", "0")
-            .replace("$hours$", " " + "666")
-            .replace("$brank$", " #" + "999")
-            .replace("$drank$", " #" + "333")
-            .replace("$lighttext$", lighttext)
-            .replace("$darktext$", darktext)
-            .replace("$bgbase64$", backgroundUri)
-            .replace("$bgopacity$", backgroundOpacity)
-            .replace("$bgheight$", "")
-            .replace("$servers$", "1")
-            .replace("$profilebase64$", profileUri)
-            .replace("$spritebase64$", "")
-            .replace("$customstyle$", cardFont + color + greyout);
+        svg = svg.replaceAll("$username$", username)
+            .replaceAll("$bubbles$", 1000 + " Bubbles")
+            .replaceAll("$drops$", 100 + " Drops")
+            .replaceAll("$dropratio$", "1: Newbie")
+            .replaceAll("$firstseen$", "1.1.2000")
+            .replaceAll("$sprites$", " 0 bought")
+            .replaceAll("$events$", "0")
+            .replaceAll("$hours$", " " + "666")
+            .replaceAll("$brank$", " #" + "999")
+            .replaceAll("$drank$", " #" + "333")
+            .replaceAllAll("$lighttext$", lighttext)
+            .replaceAll("$darktext$", darktext)
+            .replaceAll("$bgbase64$", backgroundUri)
+            .replaceAll("$bgopacity$", backgroundOpacity)
+            .replaceAll("$bgheight$", "")
+            .replaceAll("$servers$", "1")
+            .replaceAll("$profilebase64$", profileUri)
+            .replaceAll("$spritebase64$", "")
+            .replaceAll("$customstyle$", cardFont + color + greyout);
         card.contentDocument.firstChild.innerHTML = svg;
     }, { once: true });
     card.data = card.data;
