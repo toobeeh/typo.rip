@@ -66,7 +66,7 @@ const setCustomcard = (color, lighttext, darktext, backImage, backgroundOpacity,
             .replaceAll("$drank$", " #" + "1")
             .replaceAll("$lighttext$", lighttext)
             .replaceAll("$darktext$", darktext)
-            .replaceAll("$bgbase64$", backImage ? (await getCroppedBackground(backImage)).replace("data:image/png;base64,","") : "")
+            .replaceAll("$bgbase64$", backImage)
             .replaceAll("$bgopacity$", backgroundOpacity)
             .replaceAll("$bgheight$", "332")
             .replaceAll("$servers$", "1")
@@ -386,10 +386,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // with crossorigin support
         let img = await loadImg("https://api.allorigins.win/raw?url=" + backgroundimg);
         let imgurLink = "-";
+        let imgUri = "";
         if (img) {
+            let imgUri = (await getCroppedBackground(backImage)).replace("data:image/png;base64,", "");
             imgurLink = await new Promise((resolve, reject) => {
                 const formdata = new FormData()
-                formdata.append("image", dataURIToBlob(cardSprite))
+                formdata.append("image", dataURIToBlob(imgUri))
                 fetch("https://api.imgur.com/3/image/", {
                     method: "post",
                     headers: {
@@ -403,7 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
             imgurLink = imgurLink.replace("https://i.imgur.com/", "");
         }
         QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
-        setCustomcard(headercol, lighttext, darktext, img, backgroundop, headerop);
+        setCustomcard(headercol, lighttext, darktext, imgUri, backgroundop, headerop);
     }
     // init swatches
     QSA(".swatch").forEach(swatch => {
