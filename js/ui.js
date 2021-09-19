@@ -48,6 +48,7 @@ const getCroppedBackground = async (url) => {
 }
 const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
+    card.style.opacity = "0.2";
     card.addEventListener("load", async () => {
         color = "#header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
@@ -73,6 +74,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpac
             .replaceAll("data:image/png;base64,$spritebase64$", cardSprite)
             .replaceAll("$customstyle$", cardFont + color + greyout);
         card.contentDocument.firstChild.innerHTML = svg;
+        card.style.opacity = "";
     }, { once: true });
     card.data = card.data;
 }
@@ -376,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const saveelem = swatch.closest(".contentBox");
         const pickr = Pickr.create({
             el: swatch,
+            default: saveelem.getAttribute("picker-col"),
             theme: 'monolith',
             container: 'body',
             defaultRepresentation: 'HEX',
@@ -408,6 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
             lastRefresh = Date.now(); updateCard();
         }
     }));
+    updateCard();
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
