@@ -65,7 +65,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpac
             .replaceAll("$drank$", " #" + "1")
             .replaceAll("$lighttext$", lighttext)
             .replaceAll("$darktext$", darktext)
-            .replaceAll("$bgbase64$", (await getCroppedBackground(backgroundUri)).replace("data:image/png;base64,",""))
+            .replaceAll("$bgbase64$", backgroundUri != "" ? (await getCroppedBackground(backgroundUri)).replace("data:image/png;base64,","") : "")
             .replaceAll("$bgopacity$", backgroundOpacity)
             .replaceAll("$bgheight$", "332")
             .replaceAll("$servers$", "1")
@@ -398,7 +398,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     // init input change 
-    QS("")
+    let lastRefresh = 0;
+    let nextTimeout = 0;
+    QSA("#cardHeaderOpacity, #cardBackgroundOpacity, #cardBackground").forEach(e => e.addEventListener("change", (e) => {
+        clearTimeout(nextTimeout);
+        setTimeout(updateCard, lastRefresh + 500 - Date.now());
+    }));
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
