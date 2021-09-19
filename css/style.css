@@ -196,15 +196,16 @@ h3 {
 .ex:before{content:"" !important}
 .ex:after {content: "" !important}
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     outline: none;
     border: none;
     border-bottom: 2px solid #aa8dd8;
-    background:none;
-    color:inherit;
-    font-size:inherit;
-    letter-spacing:0.15rem;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+    letter-spacing: 0.15rem;
 }
+
 input[type="button"] {
     border: 2px solid #aa8dd8;
     background: none;

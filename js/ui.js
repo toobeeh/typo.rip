@@ -360,6 +360,46 @@ document.addEventListener("DOMContentLoaded", () => {
         o.addEventListener("click", setInfo);
         o.addEventListener("input", setInfo);
     });
+    // set customcard changes
+    const updateCard = () => {
+        // get values
+        let headercol = QS("#headercol").getAttribute("picker-col");
+        let lighttext = QS("#lighttext").getAttribute("picker-col");
+        let darktext = QS("#darktext").getAttribute("picker-col");
+        let headerop = parseFloat(QS("#headerop input").value);
+        let backgroundop = parseFloat(QS("#backgroundop input").value);
+        let backgroundimg = QS("#backgroundimg input").value.trim();;
+        setCustomcard(headercol, lighttext, darktext, backgroundimg, backgroundop, headerop);
+    }
+    // init swatches
+    QSA(".swatch").forEach(swatch => {
+        const saveelem = swatch.closest(".contentBox");
+        const pickr = Pickr.create({
+            el: swatch,
+            theme: 'monolith',
+            container: 'body',
+            defaultRepresentation: 'HEX',
+            comparison: false,
+            components: {
+                // Main components
+                preview: true,
+                opacity: true,
+                hue: true,
+                // Input / output Options
+                interaction: {
+                    hex: true,
+                    rgba: true,
+                    input:true
+                }
+            }
+        });
+        pickr.on("change", (color) => {
+            saveelem.setAttribute("picker-col", color.toHEXA());
+            updateCard();
+        });
+    });
+    // init input change 
+    QS("")
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {

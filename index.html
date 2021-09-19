@@ -846,11 +846,21 @@
     </div>
     <div class="contentSection hidden" id="customcard">
         <h1>Design your card</h1>
-        <h3>>customcard black black 0 0 2 ifhgt.png</h3>      
-        <div class="flexrow fullwidth">
-            <div id=""><span>Primary Color</span><div class="swatch"></div></div>
-        </div>
-        <object type="image/svg+xml" data="res/rawcard.svg"></object>
+        <h3>>customcard black black 0 0 2 ifhgt.png</h3>     
+        <div class="contentRow fullwidth">
+            <object type="image/svg+xml" data="res/rawcard.svg"></object>
+            <div class="contentBox" id="formCard" style="width:40%">
+                <br />
+                <div>
+                    <div class="contentBox" id="headercol" picker-col="black"><span>Header Color</span><div class="swatch"></div></div><br />
+                    <div class="contentBox" id="lighttext" picker-col="white"><span>Light Text Color</span><div class="swatch"></div></div><br />
+                    <div class="contentBox" id="darktext" picker-col="white"><span>Dark Text Color</span><div class="swatch"></div></div><br />
+                    <div class="contentBox" id="headerop"><span>Header Opacity</span> <input value="0.8"type="number" id="cardHeaderOpacity" placeholder="0.8"></div><br />
+                    <div class="contentBox" id="backgroundop"><span>Background Opacity</span> <input value="0.8" type="number" id="cardBackgroundOpacity" placeholder="0.8"></div><br />
+                    <div class="contentBox" id="backgroundimg"><span>Background Image URL</span> <input value="" type="text" id="cardBackground" placeholder="https://xx.xx/xx.png"></div>
+                </div>
+            </div>
+        </div>            
     </div>
     <div class="contentSection hidden" id="workshop">
         <h1>Sprite Workshop</h1>
