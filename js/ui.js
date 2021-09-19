@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let darktext = QS("#darktext").getAttribute("picker-col");
         let headerop = parseFloat(QS("#headerop input").value);
         let backgroundop = parseFloat(QS("#backgroundop input").value);
-        let backgroundimg = QS("#backgroundimg input").value.trim();;
+        let backgroundimg = QS("#backgroundimg input").value.trim();
         setCustomcard(headercol, lighttext, darktext, backgroundimg, backgroundop, headerop);
     }
     // init swatches
@@ -402,7 +402,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextTimeout = 0;
     QSA("#cardHeaderOpacity, #cardBackgroundOpacity, #cardBackground").forEach(e => e.addEventListener("change", (e) => {
         clearTimeout(nextTimeout);
-        setTimeout(() => { lastRefresh = Date.now(); updateCard(); }, lastRefresh + 500 - Date.now());
+        let wait = lastRefresh + 500 - Date.now();
+        setTimeout(() => { lastRefresh = Date.now(); updateCard(); }, wait);
     }));
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
