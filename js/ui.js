@@ -49,7 +49,7 @@ const getCroppedBackground = async (url) => {
 const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
     card.addEventListener("load", async () => {
-        color = ".bgpath img{width:100%; height:100%;} #header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
+        color = "#header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
         let greyout = " #early, moderator * {opacity: .5}";
         let svg = card.contentDocument.firstChild.innerHTML;
@@ -67,7 +67,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpac
             .replaceAll("$darktext$", darktext)
             .replaceAll("$bgbase64$", (await getCroppedBackground(backgroundUri)).replace("data:image/png;base64,",""))
             .replaceAll("$bgopacity$", backgroundOpacity)
-            .replaceAll("$bgheight$", "695")
+            .replaceAll("$bgheight$", "332")
             .replaceAll("$servers$", "1")
             .replaceAll("$profilebase64$", cardProfile)
             .replaceAll("data:image/png;base64,$spritebase64$", cardSprite)
