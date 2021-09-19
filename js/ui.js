@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let headerop = parseFloat(QS("#headerop input").value);
         let backgroundop = parseFloat(QS("#backgroundop input").value);
         let backgroundimg = QS("#backgroundimg input").value.trim();
-        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + backgroundUri + " " + backgroundop + " " + headerop;
+        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + backgroundimg + " " + backgroundop + " " + headerop;
         setCustomcard(headercol, lighttext, darktext, backgroundimg, backgroundop, headerop);
     }
     // init swatches
