@@ -246,3 +246,8 @@ git {
 a{
     cursor:pointer !important;
 }
+
+object.loading{
+    opacity:.5;
+    background-color:red;
+}

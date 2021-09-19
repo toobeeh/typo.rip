@@ -48,7 +48,6 @@ const getCroppedBackground = async (i) => {
 }
 const setCustomcard = (color, lighttext, darktext, backImage, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
-    card.style.opacity = "0.2";
     card.addEventListener("load", async () => {
         color = "#header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
@@ -74,7 +73,6 @@ const setCustomcard = (color, lighttext, darktext, backImage, backgroundOpacity,
             .replaceAll("data:image/png;base64,$spritebase64$", cardSprite)
             .replaceAll("$customstyle$", cardFont + color + greyout);
         card.contentDocument.firstChild.innerHTML = svg;
-        card.style.opacity = "";
     }, { once: true });
     card.data = card.data;
 }
@@ -376,6 +374,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // set customcard changes
     const updateCard = async () => {
+        // make card "loading"
+        const card = QS("#customcard object");
+        card.classList.add("loading");
         // get values
         let headercol = QS("#headercol").getAttribute("picker-col");
         let lighttext = QS("#lighttext").getAttribute("picker-col");
@@ -387,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let img = await loadImg("https://api.allorigins.win/raw?url=" + backgroundimg);
         let imgurLink = "-";
         let imgUri = "";
+        // if image was successfully loaded
         if (img) {
             imgUri = await getCroppedBackground(img);
             imgurLink = await new Promise((resolve, reject) => {
@@ -407,6 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
         setCustomcard(headercol, lighttext, darktext, imgUri, backgroundop, headerop);
+        card.classList.remove("loading");
     }
     // init swatches
     QSA(".swatch").forEach(swatch => {
