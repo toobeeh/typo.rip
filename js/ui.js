@@ -39,7 +39,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpac
             .replaceAll("$darktext$", darktext)
             .replaceAll("$bgbase64$", backgroundUri)
             .replaceAll("$bgopacity$", backgroundOpacity)
-            .replaceAll("$bgheight$", "")
+            .replaceAll("$bgheight$", "695")
             .replaceAll("$servers$", "1")
             .replaceAll("$profilebase64$", cardProfile)
             .replaceAll("data:image/png;base64,$spritebase64$", cardSprite)
