@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let imgurLink = "-";
         let imgUri = "";
         if (img) {
-            let imgUri = (await getCroppedBackground(img)).replace("data:image/png;base64,", "");
+            let imgUri = await getCroppedBackground(img);
             imgurLink = await new Promise((resolve, reject) => {
                 const formdata = new FormData()
                 formdata.append("image", dataURIToBlob(imgUri))
@@ -402,6 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     resolve(data.data.link);
                 });
             });
+            imgUri = imgUri.replace("data:image/png;base64,", "");
             imgurLink = imgurLink.replace("https://i.imgur.com/", "");
         }
         QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
