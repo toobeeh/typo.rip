@@ -49,7 +49,7 @@ const getCroppedBackground = async (url) => {
 const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
     card.addEventListener("load", async () => {
-        color = "#header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
+        color = ".bgpath img{width:100%; height:100%;} #header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
         let greyout = " #early, moderator * {opacity: .5}";
         let svg = card.contentDocument.firstChild.innerHTML;
