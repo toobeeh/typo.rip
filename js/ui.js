@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     resolve(data.data.link);
                 });
             });
-            imgurLink.replace("https://i.imgur.com/", "");
+            imgurLink = imgurLink.replace("https://i.imgur.com/", "");
         }
         QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
         setCustomcard(headercol, lighttext, darktext, img, backgroundop, headerop);
