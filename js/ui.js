@@ -386,16 +386,18 @@ document.addEventListener("DOMContentLoaded", () => {
         let img = await loadImg(backgroundimg);
         let imgurLink = "-";
         if (img) {
-            const formdata = new FormData()
-            formdata.append("image", DataURIToBlob(cardSprite))
-            fetch("https://api.imgur.com/3/image/", {
-                method: "post",
-                headers: {
-                    Authorization: "Client-ID f35028dc12789c5"
-                },
-                body: formdata
-            }).then(data => data.json()).then(data => {
-                imgurLink = data.data.link;
+            imgurLink = await new Promise((resolve, reject) => {
+                const formdata = new FormData()
+                formdata.append("image", DataURIToBlob(cardSprite))
+                fetch("https://api.imgur.com/3/image/", {
+                    method: "post",
+                    headers: {
+                        Authorization: "Client-ID f35028dc12789c5"
+                    },
+                    body: formdata
+                }).then(data => data.json()).then(data => {
+                    resolve(data.data.link);
+                });
             });
         }
         QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + imgurLink + " " + backgroundop + " " + headerop;
