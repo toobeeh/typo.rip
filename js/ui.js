@@ -33,7 +33,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, profileUri, ba
             .replaceAll("$hours$", " " + "666")
             .replaceAll("$brank$", " #" + "999")
             .replaceAll("$drank$", " #" + "333")
-            .replaceAllAll("$lighttext$", lighttext)
+            .replaceAll("$lighttext$", lighttext)
             .replaceAll("$darktext$", darktext)
             .replaceAll("$bgbase64$", backgroundUri)
             .replaceAll("$bgopacity$", backgroundOpacity)
