@@ -25,7 +25,7 @@ const loadImg = async (url) => {
         img.onload = function () {
             resolve(this);
         }
-        img.onerror = resolve(null);
+        img.onerror = () => { resolve(null) };
         img.src = url;
     });
 }
