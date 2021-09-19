@@ -371,6 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let headerop = parseFloat(QS("#headerop input").value);
         let backgroundop = parseFloat(QS("#backgroundop input").value);
         let backgroundimg = QS("#backgroundimg input").value.trim();
+        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + backgroundUri + " " + backgroundop + " " + headerop;
         setCustomcard(headercol, lighttext, darktext, backgroundimg, backgroundop, headerop);
     }
     // init swatches
@@ -405,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextTimeout = 0;
     QSA("#cardHeaderOpacity, #cardBackgroundOpacity, #cardBackground").forEach(e => e.addEventListener("input", (e) => {
         clearTimeout(nextTimeout);
-        let wait = lastRefresh + 500 - Date.now();
+        let wait = lastRefresh + 1000 - Date.now();
         if (wait > 0) nextTimeout = setTimeout(() => { lastRefresh = Date.now(); updateCard(); }, wait);
         else {
             lastRefresh = Date.now(); updateCard();
