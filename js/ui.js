@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let imgurLink = "-";
         let imgUri = "";
         if (img) {
-            let imgUri = (await getCroppedBackground(backImage)).replace("data:image/png;base64,", "");
+            let imgUri = (await getCroppedBackground(img)).replace("data:image/png;base64,", "");
             imgurLink = await new Promise((resolve, reject) => {
                 const formdata = new FormData()
                 formdata.append("image", dataURIToBlob(imgUri))
