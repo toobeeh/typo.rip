@@ -247,18 +247,20 @@ a{
     cursor:pointer !important;
 }
 #customcard object {
-    transition: opacity .25s;
-    z-index: 2;
 }
     #customcard object.loading {
-        opacity: 0;
-        position:relative;
+        animation-name: cardload;
+        animation-duration:1s;
+        animation-iteration-count:infinite;
+        animation-direction:alternate;
     }
-    #customcard object.loading:after {
-        content:" ";
-        opacity: 0;
-        background-color: red;
-        position:absolute;
-        inset:0;
-        z-index:1;
+
+@keyframes cardload {
+    from {
+        opacity: 0.5;
     }
+
+    to {
+        opacity: 0;
+    }
+}
