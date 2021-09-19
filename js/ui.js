@@ -383,7 +383,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let headerop = parseFloat(QS("#headerop input").value);
         let backgroundop = parseFloat(QS("#backgroundop input").value);
         let backgroundimg = QS("#backgroundimg input").value.trim();
-        let img = await loadImg(backgroundimg);
+        // with crossorigin support
+        let img = await loadImg("https://api.allorigins.win/raw?url=" + backgroundimg);
         let imgurLink = "-";
         if (img) {
             imgurLink = await new Promise((resolve, reject) => {
