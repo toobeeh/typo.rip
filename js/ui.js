@@ -379,7 +379,6 @@ document.addEventListener("DOMContentLoaded", () => {
             theme: 'monolith',
             container: 'body',
             defaultRepresentation: 'HEX',
-            comparison: false,
             components: {
                 // Main components
                 preview: true,
@@ -388,12 +387,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Input / output Options
                 interaction: {
                     hex: true,
-                    rgba: true,
-                    input:true
+                    input: true,
+                    save: true
                 }
             }
         });
-        pickr.on("change", (color) => {
+        pickr.on("save", (color) => {
             saveelem.setAttribute("picker-col", color.toHEXA());
             updateCard();
         });
