@@ -402,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextTimeout = 0;
     QSA("#cardHeaderOpacity, #cardBackgroundOpacity, #cardBackground").forEach(e => e.addEventListener("change", (e) => {
         clearTimeout(nextTimeout);
-        setTimeout(updateCard, lastRefresh + 500 - Date.now());
+        setTimeout(() => { lastRefresh = Date.now(); updateCard(); }, lastRefresh + 500 - Date.now());
     }));
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
