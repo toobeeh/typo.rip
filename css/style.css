@@ -246,8 +246,19 @@ git {
 a{
     cursor:pointer !important;
 }
-
-object.loading{
-    opacity:.5;
-    background-color:red;
+#customcard object {
+    transition: opacity .25s;
+    z-index: 2;
 }
+    #customcard object.loading {
+        opacity: 0;
+        position:relative;
+    }
+    #customcard object.loading:after {
+        content:" ";
+        opacity: 0;
+        background-color: red;
+        position:absolute;
+        inset:0;
+        z-index:1;
+    }
