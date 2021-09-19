@@ -25,6 +25,8 @@
     <script src="js/ui.js"></script>
     <title>Typo.rip ⚰️ </title>
     <link rel="shortcut icon" type="image/x-icon" href="res/128MaxFit.png">
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" />
 </head>
 <body>
     <div id="navBack"></div>
@@ -841,6 +843,11 @@
         <!--<h3>Filter by tags: #event #regular #<span class="pmReq">eventdrop</span> #<span class="pmReq">event</span></h3>-->
         <h3><input type="button" value="By ID" id="spritesOrderBy"> <input type="button" id="spritesOrderDirection" value="Ascending"><input type="text" id="filterSprites" placeholder="Search Keyword" /><span class="pmReq" id="spriteRes"></span></h3>
         <div class="flexrow flexcenter" id="spriteList"></div>
+    </div>
+    <div class="contentSection hidden" id="customcard">
+        <h1>Design your card</h1>
+        <h3>>customcard black black 0 0 2 ifhgt.png</h3>      
+        <object type="image/svg+xml" data="res/card.svg"></object>
     </div>
     <div class="contentSection hidden" id="workshop">
         <h1>Sprite Workshop</h1>
