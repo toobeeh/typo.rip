@@ -120,7 +120,7 @@ const sectionNames = {
     "documentation": "Commands",
     "privacy": "Privacy",
     "workshop": "Creator",
-    "customcard", "Card"
+    "customcard": "Card"
 }
 let showsection = (sectionID) => {
     // scroll to top
