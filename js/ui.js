@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (img) {
             imgurLink = await new Promise((resolve, reject) => {
                 const formdata = new FormData()
-                formdata.append("image", DataURIToBlob(cardSprite))
+                formdata.append("image", dataURIToBlob(cardSprite))
                 fetch("https://api.imgur.com/3/image/", {
                     method: "post",
                     headers: {
