@@ -38,7 +38,7 @@ const getCropPosition = (originalWidth, originalHeight, ratio) => {
     return { h: height, w: width, x: cropX, y: cropY };
 }
 const getCroppedBackground = async (url) => {
-    let i = await getImg(url);
+    let i = await loadImg(url);
     let crop = getCropPosition(i.width, i.height, 1042 / 695);
     let cv = document.createElement("canvas");
     cv.height = 695;
