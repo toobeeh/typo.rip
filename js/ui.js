@@ -25,6 +25,7 @@ const loadImg = async (url) => {
         img.onload = function () {
             resolve(this);
         }
+        img.onerror = resolve(null);
         img.src = url;
     });
 }
@@ -37,8 +38,7 @@ const getCropPosition = (originalWidth, originalHeight, ratio) => {
     cropY = (originalHeight - height) / 2;
     return { h: height, w: width, x: cropX, y: cropY };
 }
-const getCroppedBackground = async (url) => {
-    let i = await loadImg(url);
+const getCroppedBackground = async (i) => {
     let crop = getCropPosition(i.width, i.height, 1042 / 695);
     let cv = document.createElement("canvas");
     cv.height = 695;
@@ -46,7 +46,7 @@ const getCroppedBackground = async (url) => {
     cv.getContext("2d").drawImage(i, crop.x, crop.y, crop.w, crop.h, 0, 0, 1024, 695);
     return cv.toDataURL();
 }
-const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
+const setCustomcard = (color, lighttext, darktext, backImage, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
     card.style.opacity = "0.2";
     card.addEventListener("load", async () => {
@@ -66,7 +66,7 @@ const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpac
             .replaceAll("$drank$", " #" + "1")
             .replaceAll("$lighttext$", lighttext)
             .replaceAll("$darktext$", darktext)
-            .replaceAll("$bgbase64$", backgroundUri != "" ? (await getCroppedBackground(backgroundUri)).replace("data:image/png;base64,","") : "")
+            .replaceAll("$bgbase64$", backImage ? (await getCroppedBackground(backImage)).replace("data:image/png;base64,","") : "")
             .replaceAll("$bgopacity$", backgroundOpacity)
             .replaceAll("$bgheight$", "332")
             .replaceAll("$servers$", "1")
@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
         o.addEventListener("input", setInfo);
     });
     // set customcard changes
-    const updateCard = () => {
+    const updateCard = async () => {
         // get values
         let headercol = QS("#headercol").getAttribute("picker-col");
         let lighttext = QS("#lighttext").getAttribute("picker-col");
@@ -371,8 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let headerop = parseFloat(QS("#headerop input").value);
         let backgroundop = parseFloat(QS("#backgroundop input").value);
         let backgroundimg = QS("#backgroundimg input").value.trim();
-        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + backgroundimg + " " + backgroundop + " " + headerop;
-        setCustomcard(headercol, lighttext, darktext, backgroundimg, backgroundop, headerop);
+        let img = await loadImg(backgroundimg);
+        QS("#cardCommand").innerText = ">customcard " + headercol + " " + lighttext + " " + darktext + " " + (img ? backgroundimg : "-") + " " + backgroundop + " " + headerop;
+        setCustomcard(headercol, lighttext, darktext, img, backgroundop, headerop);
     }
     // init swatches
     QSA(".swatch").forEach(swatch => {
