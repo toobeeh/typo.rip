@@ -46,9 +46,9 @@ const getCroppedBackground = async (url) => {
     cv.getContext("2d").drawImage(i, crop.x, crop.y, crop.w, crop.h, 0, 0, 1024, 695);
     return cv.toDataURL();
 }
-const setCustomcard = async (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
+const setCustomcard = (color, lighttext, darktext, backgroundUri, backgroundOpacity, headerOpacity) => {
     const card = QS("#customcard object");
-    card.addEventListener("load", () => {
+    card.addEventListener("load", async () => {
         color = "#header,#border{stroke:" + (headerOpacity >= 1 ? color : "none")
             + "} #header{fill:" + color + (headerOpacity < 1 ? "; opacity:" + headerOpacity : "") + "} *{font-style:'Roboto' !important} ";
         let greyout = " #early, moderator * {opacity: .5}";
