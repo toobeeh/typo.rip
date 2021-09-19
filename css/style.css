@@ -250,17 +250,17 @@ a{
 }
     #customcard object.loading {
         animation-name: cardload;
-        animation-duration:1s;
+        animation-duration:.35s;
         animation-iteration-count:infinite;
         animation-direction:alternate;
     }
 
 @keyframes cardload {
     from {
-        opacity: 0.5;
+        opacity: 0.6;
     }
 
     to {
-        opacity: 0;
+        opacity: 0.3;
     }
 }
