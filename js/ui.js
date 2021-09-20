@@ -423,11 +423,10 @@ document.addEventListener("DOMContentLoaded", () => {
             components: {
                 // Main components
                 preview: true,
-                opacity: true,
+                opacity: false,
                 hue: true,
                 // Input / output Options
                 interaction: {
-                    hex: true,
                     input: true,
                     save: true
                 }
