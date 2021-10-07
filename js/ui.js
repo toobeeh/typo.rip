@@ -220,10 +220,6 @@ let setInfo = e => {
         info += "<br>You can choose between topics (logo, flag, or just the term) or enter your own term to search.<br><br>"
         info += "Click on the image to show the next search result."
     }
-    else if (e.id == 'tablet') {
-        info = "Tablet <br><br>"
-        info += "Tablet support! Enables pressure sensitivity of your graphics tablet.<br>";
-    }
     else if (e.id == 'markup') {
         info = "Markup <br><br>"
         info += "Changes the background color of your chat messages so it's easier for you to keep view.<br>";
@@ -232,13 +228,25 @@ let setInfo = e => {
         info = "Side Controls <br><br>"
         info += "Show or hide side controls like sound, fullscreen, gallery cloud and tablet mode.<br>";
     }
+    else if (e.id == 'drops') {
+        info = "Drops <br><br>"
+        info += "Set if you want to see and catch Palantir drops, if you're logged in to Palantir.<br>";
+    }
+    else if (e.id == 'charbar') {
+        info = "CharBar <br><br>"
+        info += "Displays a small field under the chat input. The color indicates if the typed text matches the word length/hints.";
+    }
+    else if (e.id == 'emojis') {
+        info = "Emoji Picker <br><br>"
+        info += "Displays an emoji-picker like in Discord when you type something after a :.";
+    }
     else if (e.id == 'clear') {
         info = "Dont Clear <br><br>"
         info += "Prevents the canvas from being cleared after someone finished drawing.<br>Fun in custom lobbies when everyone activates this!.<br>";
     }
-    else if (e.id == 'holy') {
-        info = "Holy <br><br>"
-        info += "Nothing except a small ego boost :D.<br>";
+    else if (e.id == 'zoom') {
+        info = "Zoom Draw <br><br>"
+        info += "Draw more precise by zooming. Press shift and click where you want to zoom to.<br> The choose a level by pressing a number key.<br>Exit with Shift + Click again.<br>";
     }
     else if (e.id == 'originalPalette') {
         info = "Original Palette<br><br>"
@@ -256,24 +264,28 @@ let setInfo = e => {
             + "- index: rather an id than index, but that's how it is called in skribbl. Important that NONE of your colors have an index of a color of another palette! <br>Skribbl colors have indexes from 0-20, the sketchful palette from 100 to 138. Choose anything else.<br>"
             + "- color: your color. Can be in hex, rgb, anything (rgba didn't work).<br>";
     }
-    else if (e.id == 'backbutton') {
-        info = "BackButton <br><br>"
-        info += "Shows a beta-backbutton.<br>e is kinda hacky and just redraws the whole image.";
-        info += "<br>Sadly also still buggy.";
-    }
-    else if (e.id == 'charbar') {
-        info = "CharBar <br><br>"
-        info += "Displays a small field under the chat input. The color indicates if the typed text matches the word length/hints.";
+    else if (e.id == 'commands') {
+        info = "Commands <br><br>"
+        info += "Access features quickly by chat commands. View all with 'help--'. Handy examples are 'like--', 'shame--' and 'kick--'.<br>";
     }
     else if (e.id == 'randomToggle') {
         info = "Random Color <br><br>"
         info += "Switches the brush color automatically (VERY fast). Doesn't set white.<br>";
-        info += "<br>Click the dice in the color field to activate and click any color to deactivate.";
+        info += "<br>Click the dice in the color field to activate and click any color to deactivate.<br> Also shows a color picker for private rounds.<br>Onyl Typo users see those colors!";
     }
     else if (e.id == 'palantirToggle') {
         info = "Discord Lobbies <br><br>"
         info += "If activated, your lobby will show up in the bot message of any of your added discord servers.<br>";
         info += "If you want to stay incongito, turn this off - especially in private lobbies.";
+    }
+    else if (e.id == 'quickreact') {
+        info = "QuickReact <br><br>"
+        info += "Press CTRL when the chat box is focused and select a quick action with the arrow keys.<br>";
+        info += "Makes kicking, liking and disliking easier.";
+    }
+    else if (e.id == 'toolbar') {
+        info = "Typo Toolbar <br><br>"
+        info += "Changes the toolbar style to a more friendly one.<br>";
     }
     else if (e.id == 'help') {
         info = "Hello there! ❤️<br><br>"

@@ -222,17 +222,18 @@
                     <h2>Interface Improvements</h2>
                     <div>
                         <ul>
-                            <li>Skribbl Appearance Themes - create your own or select from presets</li>
+                            <li>Skribbl Appearance Themes - create your own skribbl theme or select from presets</li>
                             <li>Fullscreen mode with focus on important things</li>
-                            <li>CharBar shows if the typed guess fits the hints and the word length</li>
+                            <li>Char Count shows if the typed guess fits the hints and the word length</li>
                             <li>Up/Down keys to get the last chat input</li>
-                            <li>Show a template picture of a term (ImageAgent)</li>
+                            <li>Show a template picture of the word to draw (ImageAgent)</li>
                             <li>Highlight your messages in the chat</li>
                             <li>Use custom emojis like in Discord with :emoji-name:</li>
                             <li>Use kick-- like-- shame-- to quickly kick, like or dislike from the chat</li>
                             <li>Click CTRL in the chatbox to open a quick reaction menu for the arrow keys</li>
                             <li>Click [TAB] to auto-focus the chat input</li>
                             <li>Select chat content to copy it formatted for Discord</li>
+                            <li>Buttons to skip or exit lobbies</li>
                         </ul>
                     </div>
                 </div>
@@ -240,35 +241,40 @@
                     <h2>Drawing</h2>
                     <div>
                         <ul>
-                            <li>A prectise mode with unlimited time (click the avatar on the start page)</li>
-                            <li>Pressure sensitivity (Windows Ink / drivers required)</li>
-                            <li>Pressure modes: Brush thickness, Color Brightness (HSL: L), Color Degree (HSL: H)</li>
-                            <li>Free Draw Mode (Click the avatar on the skribbl frontpage)</li>
-                            <li>Back-Button to undo last step (not 100% stable)</li>
-                            <li>Rainbow-Color brush to switch colors automatically (Click the dice in the color field)</li>
-                            <li>Color pipette (Shortcut "C")</li>
-                            <li>Bigger color palette (only extension users see those)</li>
-                            <li>Clear-Shortcut "ESC"</li>
-                            <li>Draw-over mode ("Dont Clear")</li>
-                            <li>Draw straight lines with [Shift + Arrow Keys] or [Click] + [ALT+Click] where you want the line</li>
+                            <li>A practise free-draw mode with unlimited time (click the avatar on the start page)</li>
+                            <li>Random Color brush to switch colors automatically (Click the dice in the color field)</li>
+                            <li>Bigger custom color palette (only extension users see those)</li>
+                            <li>Draw straight lines by holding [SHIFT] while you draw. Double-press [SHIFT] to snap them on the axis.</li>
                             <li>Zoom the Canvas: [STRG + Click] where you want to zoom.<br />Set the level by clicking any number key and leave with [STRG + Click].</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Game Challenges</h2>
+                    <div>
+                        <ul>
+                            <li>Blind guess - Hide the canvas</li>
+                            <li>Deaf guess - you don't see the chat</li>
+                            <li>One shot - you have only one try to guess the word</li>
+                            <li>Don't Clear - you draw over the previous drawing</li>
+                            <li>Monochrome - you have only a set of colors available</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="contentColumn">
-                <div class="contentBox">
-                    <h2>Lobby Search</h2>
-                    <div>
-                        <ul>
-                            <li>The fastest skribbl search engine with 100+ lobbies per minute</li>
-                            <li>No annoying skribbl reload when searching</li>
-                            <li>Search for one or more player names</li>
-                            <li>Buttons to exit / skip current lobby</li>
-                            <li>Skip empty lobbies</li>
-                        </ul>
-                    </div>
-                </div>
+                <!--<div class="contentBox">
+        <h2>Lobby Search</h2>
+        <div>
+            <ul>
+                <li>The fastest skribbl search engine with 100+ lobbies per minute</li>
+                <li>No annoying skribbl reload when searching</li>
+                <li>Search for one or more player names</li>
+                <li>Buttons to exit / skip current lobby</li>
+                <li>Skip empty lobbies</li>
+            </ul>
+        </div>
+    </div>-->
                 <div class="contentBox">
                     <h2>Image Magic</h2>
                     <div>
@@ -277,8 +283,22 @@
                             <li>Save drawing process animation as GIF</li>
                             <li>Share images with one click on your Discord servers</li>
                             <li>Copy and save drawings to be automatically re-drawn (ImageTools)</li>
-                            <li>If you have connected palantir, every drawing is automatically saved in the cloud gallery</li>
+                            <li>If you have connected palantir, every drawing is automatically saved in the Cloud Gallery</li>
                             <li>Paste PNGs on the prectise canvas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <h2>Brush Laboratory</h2>
+                    <div>
+                        <ul>
+                            <li>Draw with rainbow colors depending on pen pressure</li>
+                            <li>Draw with color brightnesses depending on pen pressure</li>
+                            <li>Draw rainbow lines with the mouse</li>
+                            <li>Draw manala-like images with the mirroring tool</li>
+                            <li>Draw fancy shapes with the sculpt mode</li>
+                            <li>Draw dashes with the dash mode</li>
+                            <li>Create pen-tilt effect</li>
                         </ul>
                     </div>
                 </div>
@@ -294,6 +314,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -750,18 +771,25 @@
                             <button type="button" id="markup">Markup</button>
                         </div>
                         <div class="flexrow flexrowMenu">
+                            <button type="button" id="drops">Drops</button>
                             <button type="button" id="controls">Controls</button>
-                            <button type="button" id="clear">Don't clear</button>
                         </div>
                         <div class="flexrow flexrowMenu">
-                            <button type="button" id="backbutton">Back-Button</button>
-                            <button type="button" id="charbar">CharBar</button>
+                            <button type="button" id="charbar">Char Count</button>
+                            <button type="button" id="emojis">Emojis</button>
+                        </div>
+
+                        <div class="flexrow flexrowMenu">
+                            <button type="button" id="zoom">Zoom Draw</button>
+                            <button type="button" id="toolbar">Typo Toolbar</button>
                         </div>
                         <div class="flexrow flexrowMenu">
-                            <button type="button" id="randomToggle">Random Color</button>
+                            <button type="button" id="randomToggle">Randomizer</button>
+                            <button type="button" id="commands">Chat commands</button>
                         </div>
                         <div class="flexrow flexrowMenu">
-                            <button type="button" id="palantirToggle">Discord Bot Status</button>
+                            <button type="button" id="quickreact">Quickreact</button>
+                            <button type="button" id="palantirToggle">Discord Status</button>
                         </div>
                     </div>
                     <br />
@@ -802,12 +830,6 @@
                         <div class="sliderBox" id="markupSlider">
                             <span class="sliderBar"><span class="sliderFill"></span></span>
                             <input type="range" class="slider" min="0" max="357" />
-                        </div>
-
-                        <div class="label">Tablet sensitivity  </div>
-                        <div class="sliderBox" id="sensSlider">
-                            <span class="sliderBar"><span class="sliderFill"></span></span>
-                            <input type="range" class="slider" min="0" max="100" />
                         </div>
 
                         <div>
