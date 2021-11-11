@@ -435,10 +435,11 @@ document.addEventListener("DOMContentLoaded", () => {
             components: {
                 // Main components
                 preview: true,
-                opacity: false,
+                opacity: true,
                 hue: true,
                 // Input / output Options
                 interaction: {
+                    hex: true,
                     input: true,
                     save: true
                 }
