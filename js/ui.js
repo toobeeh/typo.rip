@@ -367,10 +367,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // show initial filter result count on documentation filter
     QS("#queryRes").innerText = QSA("#documentation .contentBox").length;
-    // add dummy inout events to show infocards
+    // add dummy input events to show infocards
     QSA("button, input[type='range']").forEach((o) => {
         o.addEventListener("click", setInfo);
         o.addEventListener("input", setInfo);
+    });
+    // init login logic
+    QS("#palantirLogin").addEventListener("click", () => {
+        window.addEventListener("message", event => {
+            alert(event.data);
+        }, { once: true });
+        window.open('https://tobeh.host/Orthanc/auth/ext/', 'Log in to Palantir', 'height=650,width=500,right=0,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
     });
     // func to convert base64 to blob
     const dataURIToBlob = (dataURI) => {
