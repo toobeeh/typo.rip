@@ -451,7 +451,7 @@ const buildAccountContentSection = async accessToken => {
     }
     else QS("#accountSpriteList").textContent = "There are no sprites yet :-(";
     
-    refreshWindowSize(QS(".contentSection:not(.hidden)"));
+    setTimeout(()=>refreshWindowSize(QS(".contentSection:not(.hidden)")), 2);
 }
 // UI setup when DOM loaded
 document.addEventListener("DOMContentLoaded", () => {
