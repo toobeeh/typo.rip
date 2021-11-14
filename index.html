@@ -68,15 +68,54 @@
             Click the purple planet to add Typo or to get to know the features.
         </h3>
     </div>
-    <div class="contentSection hidden" id="me">
-        <h1>Your Palantir Account</h1>
-        <h3>
-            <input type="button" id="palantirLogin" value="Log in with Discord">
-        </h3>
-        <h3>
+    <div class="contentSection hidden" id="u">
+        <div id="accountIntro" style="display:none">
+            <h1>Your Palantir Account</h1>
+            <h3>
+                <input type="button" id="palantirLogin" value="Log in with Discord"><br><br>
+            </h3>
+            <h3>
+                A Palantir account is the key to a complete Typo and skribbl experience.<br><br>
+            </h3>
+            <div class="contentBox" style="text-align: center;">Just use your Discord to create a Palantir Account!<br>
+            With Palantir, you're ready to collect Bubbles, catch Drops and use awsome sprites.<br><br>
+            Find out more on Discord:<br><br> <a target="_blank" href="https://discord.link/typo"><input type="button" value="Typo Server"></a>
+            </div>
+        </div>
+        <div id="accountContent" class="fullwidth" style="display:none">
+            <h1 id="palantirAccountName">Hi :)</h1>
+            <div class="contentRow fullwidth">
+                <div class="contentColumn">
+                    <div class="contentBox">
+                        <h3>Your Profile</h3>
+                        <div>
+                            <ul>
+                                <li><b>Bubbles: </b><span id="accountStatsBubbles">1000</span></li>
+                                <li><b>Drops: </b><span id="accountStatsDrops">100</span></li>
+                                <li><b>Sprites: </b><span id="accountStatsSprites">10</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contentBox">
+                        <h3>Your Sprites</h3>
+                        <div id="accountSpriteList">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="contentColumn">
+                    <div class="contentBox">
+                        <h3>Manage Servers</h3>
+                        <div>
+                            <span>Add or remove servers from your Palantir account</span><br><br>
+                            <div id="accountGuilds">
 
-            Content!
-        </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="contentSection hidden" id="palantir">
         <h1>'Palantir' Discord Bot</h1>

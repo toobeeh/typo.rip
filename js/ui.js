@@ -349,6 +349,96 @@ let setInfo = e => {
         dummy.style.height = "";
     });
 }
+const getMember = async accessToken => {
+    let response = null;
+    try {
+        const memberResponse = await(await fetch("https://81.217.227.81/Orthanc/tokenapi/member/",
+        {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: "POST",
+            body: "get&accessToken=" + accessToken
+        })).json();
+        response =  memberResponse;
+    }
+    catch{ response = false; }
+    return response;
+}
+const modifyGuilds = async (accessToken, method, guildToken) => {
+    const guildResponse = await(await fetch("https://81.217.227.81/Orthanc/tokenapi/guild/",
+        {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: "POST",
+            body: method + "&accessToken=" + accessToken + "&guildToken=" + guildToken
+        })).json();
+    return guildResponse;
+}
+const showLoginState = loggedIn => {
+    QS("#accountIntro").style.display = loggedIn ? "none" : "";
+    QS("#accountContent").style.display = loggedIn ? "" : "none";
+}
+const buildAccountContentSection = async accessToken => {
+    const member = await getMember(accessToken);
+    QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
+    QS("#accountStatsBubbles").textContent = member.Bubbles + " (" + Math.ceil(member.Bubbles * 10 / 60 / 60) + " hours)";
+    QS("#accountStatsDrops").textContent = member.Drops + " caught";
+    QS("#accountStatsSprites").textContent = member.Sprites.split(",").length + " bought";
+    const oldGuildsElem = QS("#accountGuilds");
+    oldGuildsElem.innerHTML = "";
+    const cloneWithoutHandlers = oldGuildsElem.cloneNode();
+    oldGuildsElem.parentElement.replaceChild(cloneWithoutHandlers, oldGuildsElem);
+    
+    cloneWithoutHandlers.insertAdjacentHTML("beforeend","<div class='guild'><span>Add server by token: </span><input id='accountEnterObserveToken' type='number' placeholder='12345678'><span class='add'>Add Server</span></div>");
+
+    Object.values(member.Guilds).forEach(guild => {
+        cloneWithoutHandlers.insertAdjacentHTML("beforeend","<div class='guild'><span>" + guild.GuildName + "</span><span class='token'>Observe token: <span>"+guild.ObserveToken+"</span></span><span class='remove' data-guild='"+guild.ObserveToken+"'>Remove</span></div>");
+    });
+    cloneWithoutHandlers.addEventListener("click", async (event)=>{
+        if(event.target.getAttribute("data-guild")) {
+            await modifyGuilds(accessToken, "delete", event.target.getAttribute("data-guild"));
+            buildAccountContentSection(accessToken);
+        }
+        else if(event.target.classList.contains("add")){
+            const token = QS("#accountEnterObserveToken").value.trim();
+            await modifyGuilds(accessToken, "post", token);
+            buildAccountContentSection(accessToken);
+            QS("#accountEnterObserveToken").value = "";
+        }
+    });
+    
+    // load sprites json from server
+    const memberSprites = member.Sprites.split(",");
+    const response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
+    const sprites = response.Sprites.filter(spt => memberSprites.some(inv => inv.replaceAll(".","") == spt.ID));
+    const drops = response.Drops;
+    let spriteListHTML = "";
+    
+    // create sprite card for each sprite
+    sprites.forEach(s => {
+        // build card html
+        let eventdrop = drops.find(d => d.EventDropID == s.EventDropID);
+        let sprite = `
+            <div class="sprite small" data-id="${s.ID}" data-price="${s.Cost}" style="order: ${s.ID}">
+                <div tabindex="0" class="thumbnail" style="background-image: url(${s.URL})"> </div>
+                <div class="card">
+                    <div><h3>#${s.ID}</h3></div>
+                    <div><h2>${s.Name}</h2></div>
+                    <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
+                    ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
+                    <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
+                    <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+                </div>
+            </div>`;
+        spriteListHTML += sprite;
+    });
+    QS("#accountSpriteList").innerHTML = spriteListHTML;
+
+}
 // UI setup when DOM loaded
 document.addEventListener("DOMContentLoaded", () => {
     let nav = QS("#navPlanCont");
@@ -359,8 +449,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // remove added nav planet stylesheet
         if (style) style.remove();
     }));
-    // show initial section by url hash
-    showsection(window.location.hash.substr(1));
     // perform filter function when typed in the documentation filter input
     QS("#filterCommands").addEventListener("input", (e) => {
         filterElements("#documentation .contentBox", "#queryRes", e.target.value);
@@ -374,11 +462,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // init login logic
     QS("#palantirLogin").addEventListener("click", () => {
-        window.addEventListener("message", event => {
-            alert(event.data);
+        window.addEventListener("message", async event => {
+            // save access token
+            localStorage.accessToken = event.data.accessToken;
+            // get user 
+            const member = await getMember(event.data.accessToken);
+            QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
+            showLoginState(true);
         }, { once: true });
         window.open('https://tobeh.host/Orthanc/auth/ext/', 'Log in to Palantir', 'height=650,width=500,right=0,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
     });
+    // add mutation observer to refresh member section every time it gets shown
+    const memberSectionObserver = new MutationObserver(async () => {
+        const member = await getMember(localStorage.accessToken);
+        if(member){
+            await buildAccountContentSection(localStorage.accessToken);
+        }
+        showLoginState(member);
+    });
+    memberSectionObserver.observe(QS("#u"), { attributes: true });
+    // show initial section by url hash
+    showsection(window.location.hash.substr(1));
     // func to convert base64 to blob
     const dataURIToBlob = (dataURI) => {
         const splitDataURI = dataURI.split(',')

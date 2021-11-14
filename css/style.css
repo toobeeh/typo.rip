@@ -129,6 +129,11 @@ h3 {
     width: 8rem;
     height: 8rem;
 }
+.sprite.small{
+    margin:.5em;
+    width:3rem;
+    height:3rem;
+}
     .sprite .card {
         position: absolute;
         border: 2px solid #7289da;
@@ -159,7 +164,7 @@ h3 {
     }
 
         
-        .sprite .thumbnail:hover + .card, .sprite .card:hover{
+        .sprite:not(.small) .thumbnail:hover + .card, .sprite:not(.small) .card:hover{
             transform: scale(0.9);
             opacity: 1;
             display: block;
@@ -263,4 +268,41 @@ a{
     to {
         opacity: 0.3;
     }
+}
+
+.guild {
+    padding: 1em;
+    background: #1d1d1d75;
+    margin: 1em;
+    border-radius: .5em;
+}
+
+.guild>span:nth-child(1) {
+    font-weight: bold;
+    display: block;
+}
+
+.guild .remove {
+    float: right;
+    cursor: pointer;
+    color: #ff0000c2;
+}
+
+.guild .add {
+    float: right;
+    cursor: pointer;
+    color: #00ff00c2;
+}
+
+.guild .token span:not(:hover) {
+    background: #7289da;
+    font-size: .9em;
+    opacity: .4;
+}
+.guild:hover {
+    box-shadow: 0px 0px 5px 1px #7289da3b;
+}
+#accountSpriteList{
+    display:flex;
+    flex-wrap: wrap;
 }
