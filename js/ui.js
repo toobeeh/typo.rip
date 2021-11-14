@@ -418,8 +418,17 @@ const buildAccountContentSection = async accessToken => {
         const response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
         const sprites = response.Sprites.filter(spt => memberSprites.some(inv => inv.replaceAll(".","") == spt.ID));
         const drops = response.Drops;
+        const scenes = response.Scenes;
         let spriteListHTML = "";
         
+        if(member.Scenes.length > 1){
+            let activeScene = member.Scenes.split(",").find(scene => scene[0] == ".");
+            if(activeScene){
+                activeScene = activeScene.replaceAll(".","");
+                QS("#accountStats").style.backgroundImage = "url(" + scenes.find(scene => scene.ID == activeScene).URL + ")";
+            }
+        }
+
         // create sprite card for each sprite
         sprites.forEach(s => {
             // build card html

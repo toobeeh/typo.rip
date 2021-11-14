@@ -170,7 +170,7 @@ h3 {
             display: block;
             transition-delay: .25s;
         }
-        .sprite .thumbnail:focus + .card {
+        .sprite:not(.small) .thumbnail:focus + .card {
             transform: scale(0.9);
             opacity: 1;
             display: block;
@@ -305,4 +305,11 @@ a{
 #accountSpriteList{
     display:flex;
     flex-wrap: wrap;
+}
+
+#accountStats{
+    image-rendering: pixelated;
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius:1em;
 }
