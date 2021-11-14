@@ -352,7 +352,7 @@ let setInfo = e => {
 const getMember = async accessToken => {
     let response = null;
     try {
-        const memberResponse = await(await fetch("https://81.217.227.81/Orthanc/tokenapi/member/",
+        const memberResponse = await(await fetch("https://typo.rip/api/member/",
         {
             headers: {
                 'Accept': '*/*',
@@ -367,7 +367,7 @@ const getMember = async accessToken => {
     return response;
 }
 const modifyGuilds = async (accessToken, method, guildToken) => {
-    const guildResponse = await(await fetch("https://81.217.227.81/Orthanc/tokenapi/guild/",
+    const guildResponse = await(await fetch("https://typo.rip/api/guild/",
         {
             headers: {
                 'Accept': '*/*',
