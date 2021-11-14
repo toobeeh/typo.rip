@@ -387,7 +387,7 @@ const buildAccountContentSection = async accessToken => {
     QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
     QS("#accountStatsBubbles").textContent = member.Bubbles + " (" + Math.ceil(member.Bubbles * 10 / 60 / 60) + " hours)";
     QS("#accountStatsDrops").textContent = member.Drops + " caught";
-    QS("#accountStatsSprites").textContent = member.Sprites.split(",").length + " bought";
+    if(member.Sprites && member.Sprites.length > 0 && member.Sprites.indexOf(",") >= 0) QS("#accountStatsSprites").textContent = member.Sprites.split(",").length + " bought";
     const oldGuildsElem = QS("#accountGuilds");
     oldGuildsElem.innerHTML = "";
     const cloneWithoutHandlers = oldGuildsElem.cloneNode();
