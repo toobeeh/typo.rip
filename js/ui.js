@@ -437,7 +437,8 @@ const buildAccountContentSection = async accessToken => {
         spriteListHTML += sprite;
     });
     QS("#accountSpriteList").innerHTML = spriteListHTML;
-
+    
+    refreshWindowSize(QS(".contentSection:not(.hidden)"));
 }
 // UI setup when DOM loaded
 document.addEventListener("DOMContentLoaded", () => {
