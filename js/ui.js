@@ -182,7 +182,8 @@ const sectionNames = {
     "documentation": "Commands",
     "privacy": "Privacy",
     "workshop": "Creator",
-    "customcard": "Card"
+    "customcard": "Card",
+    "u": "You"
 }
 let showsection = (sectionID) => {
     // scroll to top
