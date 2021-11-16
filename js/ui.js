@@ -388,7 +388,7 @@ const buildAccountContentSection = async accessToken => {
     QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
     QS("#accountStatsBubbles").textContent = member.Bubbles + " (" + Math.ceil(member.Bubbles * 10 / 60 / 60) + " hours)";
     QS("#accountStatsDrops").textContent = member.Drops + " caught";
-    if(member.Sprites && member.Sprites.length > 0 && member.Sprites.indexOf(",") >= 0) QS("#accountStatsSprites").textContent = member.Sprites.split(",").length + " bought";
+    if(member.Sprites && member.Sprites.length > 0 && member.Sprites.indexOf(",") >= 0) QS("#accountStatsSprites").textContent = (member.Sprites.split(",").length -1) + " bought";
     const oldGuildsElem = QS("#accountGuilds");
     oldGuildsElem.innerHTML = "";
     const cloneWithoutHandlers = oldGuildsElem.cloneNode();
@@ -437,12 +437,6 @@ const buildAccountContentSection = async accessToken => {
                 <div class="sprite small" data-id="${s.ID}" data-price="${s.Cost}" style="order: ${s.ID}">
                     <div tabindex="0" class="thumbnail" style="background-image: url(${s.URL})"> </div>
                     <div class="card">
-                        <div><h3>#${s.ID}</h3></div>
-                        <div><h2>${s.Name}</h2></div>
-                        <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
-                        ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
-                        <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
-                        <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
                     </div>
                 </div>`;
             spriteListHTML += sprite;
