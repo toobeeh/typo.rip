@@ -343,3 +343,34 @@ input[type=button]:hover{
     justify-content: space-between;
     gap: .5em;
 }
+
+
+#userAnchor{
+    position:fixed;
+    top:1em;
+    right:1em;
+    z-index:10;
+}
+#userAnchor div{
+    width:6vw;
+    height:6vw;
+    position: relative;
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius: 25%;
+    background-color:rgba(255, 255, 255, 0.068);
+    transition: background-color .2s, transform .2s;
+}
+#userAnchor div:hover{
+    background-color: #7289da42;
+    transform:scale(0.95);
+}
+#userAnchor div:before{
+    z-index:-1 !important;
+    position:absolute;
+    content: '';
+    inset:0;
+    background:inherit;
+    background-color:transparent;
+    background-image: url(https://tobeh.host/regsprites/sptShape.gif);
+}

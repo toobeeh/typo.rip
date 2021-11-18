@@ -183,7 +183,8 @@ const sectionNames = {
     "privacy": "Privacy",
     "workshop": "Creator",
     "customcard": "Card",
-    "u": "You"
+    "u": "You",
+    "guild": "Connect"
 }
 let showsection = (sectionID) => {
     // scroll to top
@@ -634,6 +635,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     let response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
     let sprites = response.Sprites;
     let drops = response.Drops;
+    let randSprite = null;
+    while(!randSprite || randSprite?.Special == true) randSprite = sprites[Math.floor(Math.random() * sprites.length)];
+    QS("#userAnchor div").style.backgroundImage = "url(" + randSprite.URL + ")";
     // get sprites container
     let container = QS("#spriteList");
     let spriteListHTML = "";
