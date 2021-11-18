@@ -401,7 +401,7 @@ const buildAccountContentSection = async accessToken => {
     
     cloneWithoutHandlers.insertAdjacentHTML("beforeend","<div class='guild'><span>Add server by token: </span><input id='accountEnterObserveToken' type='number' placeholder='12345678'><span class='add'>Add Server</span></div>");
 
-    Object.values(member.Guilds).forEach(guild => {
+    Object.values(member.Guilds).reverse().forEach(guild => {
         cloneWithoutHandlers.insertAdjacentHTML("beforeend","<div class='guild'><span>" + guild.GuildName + "</span><span class='token'>Observe token: <span>"+guild.ObserveToken+"</span></span><span class='remove' data-guild='"+guild.ObserveToken+"'>Remove</span></div>");
     });
     cloneWithoutHandlers.addEventListener("click", async (event)=>{
