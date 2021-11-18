@@ -212,6 +212,7 @@ input[type="text"], input[type="number"] {
 }
 
 input[type="button"] {
+    transition: box-shadow .2s, letter-spacing .2s;
     border: 2px solid #aa8dd8;
     background: none;
     font-size:inherit;
@@ -312,4 +313,33 @@ a{
     background-size:cover;
     background-repeat: no-repeat;
     border-radius:1em;
+}
+
+input[type=button]:hover{
+    box-shadow: 0 0 1px #fff0, 0 0 2px #aa8dd800, 0 0 3px #aa8dd8, 0 0 4px #aa8dd8;
+    letter-spacing:.3rem;
+}
+
+.servercard{
+    width: clamp(30em, 30em, 100%);
+    background: hsla(0, 2%, 8%, 0.851);
+    color: #7289da;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 1em;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    place-items: center;
+    box-shadow: 0 0 1px #fff0, 0 0 10px #ffffff21, 0 0 2px #aa8dd800, 0 0 3px #aa8dd8, 0 0 4px #aa8dd8, 0 0 5px #aa8dd8ab;
+}
+.servercard img{
+    width: calc(100% - 2em);
+    margin-right:2em;
+    border-radius: 50%;box-shadow: 0 0 1px #fff0, 0 0 10px #ffffff21, 0 0 2px #aa8dd800, 0 0 3px #7289da, 0 0 4px #7289da, 0 0 5px #7289da;
+}
+.servercard > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5em;
 }

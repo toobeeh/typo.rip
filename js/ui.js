@@ -368,7 +368,9 @@ const getMember = async accessToken => {
     return response;
 }
 const modifyGuilds = async (accessToken, method, guildToken) => {
-    const guildResponse = await(await fetch("https://typo.rip/api/guild/",
+    let guildResponse = false;
+    try{
+        guildResponse = await(await fetch("https://typo.rip/api/guild/",
         {
             headers: {
                 'Accept': '*/*',
@@ -377,6 +379,8 @@ const modifyGuilds = async (accessToken, method, guildToken) => {
             method: "POST",
             body: method + "&accessToken=" + accessToken + "&guildToken=" + guildToken
         })).json();
+    }
+    catch{}
     return guildResponse;
 }
 const showLoginState = loggedIn => {
@@ -448,7 +452,10 @@ const buildAccountContentSection = async accessToken => {
     setTimeout(()=>refreshWindowSize(QS(".contentSection:not(.hidden)")), 2);
 }
 // UI setup when DOM loaded
+let loadQuery = [];
 document.addEventListener("DOMContentLoaded", () => {
+    // parse query parameters
+    loadQuery = window.location.hash.split("?")[1]?.split("&").map(e => e.split("="));
     let nav = QS("#navPlanCont");
     nav.addEventListener("click", shownav);
     // Close nav planet if anything except the anchors s clicked
@@ -490,13 +497,48 @@ document.addEventListener("DOMContentLoaded", () => {
         showLoginState(member);
     });
     memberSectionObserver.observe(QS("#u"), { attributes: true });
+    // add mutation observer to create invite dialogue 
+    const guildSectionObserver = new MutationObserver(async () => {
+        let member = await getMember(localStorage.accessToken);
+        QS("#guildHeader").textContent = "Connect to " + decodeURI(loadQuery.find(q=>q[0] == "name")[1]);
+        QS(".servercard img").src = decodeURI(loadQuery.find(q=>q[0] == "icon")[1]);
+        QS(".servercard h3").textContent = "Connect to " + decodeURI(loadQuery.find(q=>q[0] == "name")[1]);
+        QS(".servercard div > b").textContent = decodeURI(loadQuery.find(q=>q[0] == "count")[1]);
+        const token = decodeURI(loadQuery.find(q=>q[0] == "invite")[1]);
+        // create button copy without handlers
+        const btn = QS(".servercard input");
+        if(!member) btn.value = "Log in to Connect";
+        else if(Object.values(member.Guilds).some(g=>g.ObserveToken == token)) btn.value = "You're in!";
+        else btn.value = "Connect Server";
+        const clone = btn.cloneNode();
+        btn.parentNode.replaceChild(clone, btn);
+        clone.addEventListener("click", async ()=>{
+            if(member)
+            { 
+                await modifyGuilds(localStorage.accessToken, "post", token);
+                clone.value = "You're in!";
+            }
+            else{
+                window.addEventListener("message", async event => {
+                    // save access token
+                    localStorage.accessToken = event.data.accessToken;
+                    member = await getMember(localStorage.accessToken);
+                    // add server
+                    await modifyGuilds(event.data.accessToken, "post", token);
+                    clone.value = "You're in!";
+                }, { once: true });
+                window.open('https://tobeh.host/Orthanc/auth/ext/', 'Log in to Palantir', 'height=650,width=500,right=0,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+            }
+        });
+    });
+    guildSectionObserver.observe(QS("#guild"), { attributes: true });
     // show initial section by url hash
-    showsection(window.location.hash.substr(1));
+    showsection(window.location.hash.substr(1).split("?")[0]);
     // func to convert base64 to blob
     const dataURIToBlob = (dataURI) => {
         const splitDataURI = dataURI.split(',')
         const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
-        const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+        const mimeString = splitDataURI[0].split(':')[1].split(';')[0];
 
         const ia = new Uint8Array(byteString.length)
         for (let i = 0; i < byteString.length; i++)
@@ -582,6 +624,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }));
     updateCard();
+
+    //detect server add 
 });
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
@@ -630,5 +674,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 // When hash in url changed (eg through navigation anchors) set displayed section
 window.addEventListener("hashchange", () => {
-    showsection(window.location.hash.substr(1));
+    showsection(window.location.hash.substr(1).split("?")[0]);
 });
