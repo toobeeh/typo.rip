@@ -426,7 +426,7 @@ const buildAccountContentSection = async accessToken => {
         const scenes = response.Scenes;
         let spriteListHTML = "";
         
-        if(member.Scenes.length > 1){
+        if(member.Scenes?.length > 1){
             let activeScene = member.Scenes.split(",").find(scene => scene[0] == ".");
             if(activeScene){
                 activeScene = activeScene.replaceAll(".","");
