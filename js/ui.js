@@ -478,15 +478,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // init login logic
     QS("#palantirLogin").addEventListener("click", () => {
-        window.addEventListener("message", async event => {
-            // save access token
-            localStorage.accessToken = event.data.accessToken;
-            // get user 
-            const member = await getMember(event.data.accessToken);
-            QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
-            showLoginState(true);
-            buildAccountContentSection(localStorage.accessToken);
-        }, { once: true });
+
+        const listenOnce = () => {
+            window.addEventListener("message", async event => {
+
+                if(!event.data || !event.data.accessToken || event.data.accessToken == "") listenOnce();
+                else {
+                    // save access token
+                    localStorage.accessToken = event.data.accessToken;
+                    // get user 
+                    const member = await getMember(event.data.accessToken);
+                    QS("#palantirAccountName").textContent = "Hi there, " + member.UserName + " <3";
+                    showLoginState(true);
+                    buildAccountContentSection(localStorage.accessToken);
+                }
+            }, { once: true });
+        }
+
+        listenOnce();
+        
         window.open('https://tobeh.host/Orthanc/auth/ext/', 'Log in to Palantir', 'height=650,width=500,right=0,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
     });
     // add mutation observer to refresh member section every time it gets shown
