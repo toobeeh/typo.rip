@@ -691,7 +691,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div class="flexrow flexcenter fullwidth"><img src="${s.URL}"></div>
                     ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
                     <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
-                    <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+                    <h3>${(s.Special > 0 ? "#special" : "")} ${(s.Rainbow > 0 ? "#rainbow" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
                 </div>
             </div>`;
         spriteListHTML += sprite;
