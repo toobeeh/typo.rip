@@ -658,7 +658,7 @@ const updateRainbowPreview = async e => {
                 <div class="flexrow flexcenter fullwidth"><img  src="https://tobeh.host/modulateSprite.php?url=${s.URL}&hue=${shift}"></div>
                 ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
                 <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
-                <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+                <h3>${(s.Special > 0 ? "#special" : "")} ${(s.Rainbow > 0 ? "#rainbow" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
             </div>
         </div>`;
 
