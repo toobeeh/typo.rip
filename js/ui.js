@@ -184,7 +184,8 @@ const sectionNames = {
     "workshop": "Creator",
     "customcard": "Card",
     "u": "You",
-    "guild": "Connect"
+    "guild": "Connect",
+    "rainbowsprite": "Rainbow Demo"
 }
 let showsection = (sectionID) => {
     // scroll to top
@@ -638,13 +639,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //detect server add 
 });
+
+const updateRainbowPreview = async e => {
+    const sprite = QS("#rainbowSpriteID").value;
+    const shift = QS("#rainbowShift").value;
+
+    const s = window.sprites.find(s => s.ID == sprite);
+
+    if(!s) return;
+
+    let eventdrop = window.drops.find(d => d.EventDropID == s.EventDropID);
+    let spriteHTML = `
+        <div class="sprite" data-id="${s.ID}" data-price="${s.Cost}" style="order: ${s.ID}">
+            <div tabindex="0" class="thumbnail" style="background-image: url(https://tobeh.host/modulateSprite.php?url=${s.URL}&hue=${shift});"> </div>
+            <div class="card">
+                <div><h3>#${s.ID}</h3></div>
+                <div><h2>${s.Name}</h2></div>
+                <div class="flexrow flexcenter fullwidth"><img  src="https://tobeh.host/modulateSprite.php?url=${s.URL}&hue=${shift}"></div>
+                ${s.Artist != null ? `<h3>Artist: #${s.Artist}</h3>` : ''}
+                <div><h3>💰 ${s.Cost} ${(eventdrop ? eventdrop.Name : "Bubbles")}</h3></div>
+                <h3>${(s.Special > 0 ? "#special" : "")} ${(eventdrop ? "#event #" + eventdrop.Name + " #" + eventdrop.EventName : "#regular")}</h3>
+            </div>
+        </div>`;
+
+    QS("#rainbowSprite").innerHTML = spriteHTML;
+}
+
 // Async UI setup when DOM is loaded, fetches sprite data from server
 document.addEventListener("DOMContentLoaded", async () => {
     console.log("dom loaded!! yeet");
     // load sprites json from server
     let response = (await (await fetch("https://tobeh.host/Orthanc/sprites/")).json());
-    let sprites = response.Sprites;
-    let drops = response.Drops;
+    let sprites = window.sprites = response.Sprites;
+    let drops = window.drops = response.Drops;
     let randSprite = null;
     while(!randSprite || randSprite?.Special == true) randSprite = sprites[Math.floor(Math.random() * sprites.length)];
     QS("#userAnchor div").style.backgroundImage = "url(" + randSprite.URL + ")";
@@ -680,6 +707,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         QSA("#spritesOrderBy, #spritesOrderDirection").forEach(b => {
             b.addEventListener("click", orderSprites);
         });
+        QS("#rainbowPreview").addEventListener("click", updateRainbowPreview);
         // set initial filter to regular
         QS("#filterSprites").value = "#regular";
         QS("#filterSprites").dispatchEvent(new Event("input"));
